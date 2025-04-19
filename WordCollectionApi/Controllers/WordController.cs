@@ -10,7 +10,7 @@ namespace WordCollectionApi.Controllers
     public class WordController : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<Word>>> GetWord()
+        public async Task<ActionResult<List<Word>>> GETword()
         {
             var defaultWords = new List<Word>()
             {
@@ -30,6 +30,42 @@ namespace WordCollectionApi.Controllers
             
 
             return Ok(defaultWords);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Word>> POSTword(Word word)
+        {
+            var postedWord = new Word
+            {
+                WordValue = word.WordValue,
+                WordType = word.WordType
+            };
+
+            return Ok(postedWord);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<Word>> DELETEword(Word word)
+        {
+            //var postedWord = new Word
+            //{
+            //    WordValue = word.WordValue,
+            //    WordType = word.WordType
+            //};
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<Word>> PUTword(Word word)
+        {
+            //var postedWord = new Word
+            //{
+            //    WordValue = word.WordValue,
+            //    WordType = word.WordType
+            //};
+
+            return Ok();
         }
     }
 }
