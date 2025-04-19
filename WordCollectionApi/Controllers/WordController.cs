@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using WordCollectionApi.Models;
 using WordCollectionApi.Common;
+using MongoDB.Driver;
+using WordCollectionApi.Services;
 
 namespace WordCollectionApi.Controllers
 {
@@ -9,63 +11,66 @@ namespace WordCollectionApi.Controllers
     [ApiController]
     public class WordController : ControllerBase
     {
-        [HttpGet]
-        public async Task<ActionResult<List<Word>>> GETword()
-        {
-            var defaultWords = new List<Word>()
-            {
-                new Word
-                {
-                    WordId = 1,
-                    WordValue = "Hello",
-                    WordType = WordTypeEnum.Interjection
-                },
-                new Word
-                {
-                    WordId = 2,
-                    WordValue = "World",
-                    WordType = WordTypeEnum.Noun
-                }
-            };
-            
+        private readonly WordService _wordService;
 
-            return Ok(defaultWords);
+        public WordController(WordService wordService) {
+
+            _wordService = wordService;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Word>>> GETwords()
+        {
+            return await _wordService.GetWordsAsync();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Word>> GETword(int id)
+        {
+            var word = await _wordService.GetWordAsync(id);
+
+            return word != null ?
+                Ok(word) :
+                NotFound();
         }
 
         [HttpPost]
         public async Task<ActionResult<Word>> POSTword(Word word)
         {
-            var postedWord = new Word
-            {
-                WordValue = word.WordValue,
-                WordType = word.WordType
-            };
+            await _wordService.CreateWordAsync(word);
 
-            return Ok(postedWord);
+            return Ok(word);
         }
 
         [HttpDelete]
-        public async Task<ActionResult<Word>> DELETEword(Word word)
+        public async Task<ActionResult<Word>> DELETEword(int id)
         {
-            //var postedWord = new Word
-            //{
-            //    WordValue = word.WordValue,
-            //    WordType = word.WordType
-            //};
+            var word = await _wordService.GetWordAsync(id);
 
-            return Ok();
+            if (word != null)
+            {
+                await _wordService.RemoveWordAsync(id);
+                return Ok();
+            }
+            else { 
+                return NotFound();
+            }
         }
 
         [HttpPut]
-        public async Task<ActionResult<Word>> PUTword(Word word)
+        public async Task<ActionResult<Word>> PUTword(int id, Word updatedWord)
         {
-            //var postedWord = new Word
-            //{
-            //    WordValue = word.WordValue,
-            //    WordType = word.WordType
-            //};
+            var word = await _wordService.GetWordAsync(id);
 
-            return Ok();
+            if (word != null)
+            {
+                await _wordService.UpdateWordAsync(id, updatedWord);
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }
