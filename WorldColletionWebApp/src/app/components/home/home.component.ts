@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { WordCollectionService } from '../../services/wordCollection.service';
+import { WordCollectionService } from '../../common/services/wordCollection.service';
 
 @Component({
   selector: 'app-home',

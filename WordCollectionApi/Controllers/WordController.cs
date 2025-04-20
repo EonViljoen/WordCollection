@@ -18,13 +18,13 @@ namespace WordCollectionApi.Controllers
             _wordService = wordService;
         }
 
-        [HttpGet]
+        [HttpGet("GET_Words")]
         public async Task<ActionResult<List<Word>>> GETwords()
         {
             return await _wordService.GetWordsAsync();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GET_Word/{id}")]
         public async Task<ActionResult<Word>> GETword(int id)
         {
             var word = await _wordService.GetWordAsync(id);
@@ -34,7 +34,7 @@ namespace WordCollectionApi.Controllers
                 NotFound();
         }
 
-        [HttpPost]
+        [HttpPost("POST_Word")]
         public async Task<ActionResult<Word>> POSTword(Word word)
         {
             await _wordService.CreateWordAsync(word);
@@ -42,7 +42,7 @@ namespace WordCollectionApi.Controllers
             return Ok(word);
         }
 
-        [HttpDelete]
+        [HttpDelete("DELETE_Word")]
         public async Task<ActionResult<Word>> DELETEword(int id)
         {
             var word = await _wordService.GetWordAsync(id);
@@ -57,7 +57,7 @@ namespace WordCollectionApi.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPut("PUT_Word")]
         public async Task<ActionResult<Word>> PUTword(int id, Word updatedWord)
         {
             var word = await _wordService.GetWordAsync(id);
