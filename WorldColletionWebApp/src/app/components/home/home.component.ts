@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 // import { WordCollectionService } from '../../common/services/wordCollection.service';
 import { SubmissionComponent } from "../submission/submission.component";
 import {MatTabsModule} from '@angular/material/tabs';
+import { WordType } from '../../common/enum/wordType';
 
 
 @Component({
@@ -13,7 +14,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 })
 export class HomeComponent {
 
-  // private wordService = inject(WordCollectionService)
+  wordType = WordType;
 
   ngOnInit(){
   }

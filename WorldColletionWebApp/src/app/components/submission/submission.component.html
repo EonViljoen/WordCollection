@@ -1,10 +1,7 @@
 <div class="submission">
-    <input class="input-box" type="text" placeholder="Enter a Word" >
-    <!-- <button mat-raised-button class="submit-button" (click)="httpSubmit()">
-        Submit
-    </button> -->
+    <input matInput class="input-box" type="text" placeholder="Enter a Word" [(ngModel)]="submittedWord">
     <div class="submit-button">
-        <button mat-fab extended>
+        <button mat-fab extended (click)="httpSubmit()">
           Submit
         </button>
       </div>

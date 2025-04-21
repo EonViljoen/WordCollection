@@ -31,6 +31,19 @@ builder.Services.AddSingleton<IMongoDatabase>(x =>
 // Register WordService
 builder.Services.AddSingleton<WordService>();
 
+// Define CORS policy
+builder.Services.AddCors(policy =>
+{
+    policy.AddPolicy("AllowAngularWebApp",
+            policyBuilder =>
+            {
+                policyBuilder.WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }
+        );
+});
+
 // MVC / Swashbuckle stuff
 builder.Services.AddControllers()
     .AddJsonOptions(
@@ -52,9 +65,7 @@ if (app.Environment.IsDevelopment())
 // Swagger / CORS / Middleware stuff
 app.UseHttpsRedirection();
 
-app.UseCors(
-        option => option.AllowAnyOrigin()
-    );
+app.UseCors("AllowAngularWebApp");
 
 app.UseAuthorization();
 
