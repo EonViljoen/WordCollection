@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using System.Diagnostics.Metrics;
 using WordCollectionApi.Models;
 
 namespace WordCollectionApi.Services
@@ -7,12 +8,17 @@ namespace WordCollectionApi.Services
     public class WordService
     {
         private readonly IMongoCollection<Word> _wordCollection;
+        private readonly IMongoCollection<SequenceNumber> _sequenceCollection;
+        private readonly DbSettings _dbSettings;
 
-        public WordService(IOptions<DbSettings> dbSettings)
+        public WordService(IMongoClient mongoClient, IOptions<DbSettings> dbSettings)
         {
-            var mongoClient = new MongoClient(dbSettings.Value.ConnectionString);
-            var mongoDb = mongoClient.GetDatabase(dbSettings.Value.DatabaseName);
-            _wordCollection = mongoDb.GetCollection<Word>(dbSettings.Value.CollectionName);
+            _dbSettings = dbSettings.Value;
+            
+            var mongoDb = mongoClient.GetDatabase(_dbSettings.DatabaseName)
+                ;
+            _wordCollection = mongoDb.GetCollection<Word>(_dbSettings.WordCollectionName);
+            _sequenceCollection = mongoDb.GetCollection<SequenceNumber>(_dbSettings.SequenceCollectionName);
         }
 
         public async Task<List<Word>> GetWordsAsync() =>
@@ -21,13 +27,34 @@ namespace WordCollectionApi.Services
         public async Task<Word> GetWordAsync(int id) =>
             await _wordCollection.Find( x => x.WordId == id).FirstOrDefaultAsync();
 
-        public async Task CreateWordAsync(Word newWord) =>
+        public async Task CreateWordAsync(Word newWord)
+        {
+            newWord.WordId = await GetNextSeqNo("WordId");
             await _wordCollection.InsertOneAsync(newWord);
+        }
+            
 
         public async Task UpdateWordAsync(int id, Word updatedWord) =>
             await _wordCollection.ReplaceOneAsync(x => x.WordId == id, updatedWord);
 
         public async Task RemoveWordAsync(int id) =>
             await _wordCollection.DeleteOneAsync(x => x.WordId == id);
+
+        public async Task<int> GetNextSeqNo(string seqName)
+        {
+            var seqFilter = Builders<SequenceNumber>.Filter.Eq(
+                x => x.SequenceName, seqName);
+            var updateSeqNo = Builders<SequenceNumber>.Update.Inc(
+                x => x.SequenceNo, 1);
+
+            var autoInsertOptions = new FindOneAndUpdateOptions<SequenceNumber>
+            {
+                IsUpsert = true,
+                ReturnDocument = ReturnDocument.After
+            };
+
+            var results = await _sequenceCollection.FindOneAndUpdateAsync(seqFilter, updateSeqNo, autoInsertOptions);
+            return results.SequenceNo;
+        }
     }
 }

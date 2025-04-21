@@ -7,13 +7,13 @@ namespace WordCollectionApi.Models
     public class Word
     {
         [BsonId]
-        [BsonElement("id"), BsonRepresentation(MongoDB.Bson.BsonType.Int64)]
+        [BsonElement("id"), BsonRepresentation(MongoDB.Bson.BsonType.Int32)]
         [JsonPropertyName("id")]
         public int WordId { get; set; }
         [BsonElement("word"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
         [JsonPropertyName("word")]
         public required string WordValue { get; set; }
-        [BsonElement("type"), BsonRepresentation(MongoDB.Bson.BsonType.Int64)]
+        [BsonElement("type"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
         [JsonPropertyName("type")]
         public required WordTypeEnum WordType { get; set; }
     }
