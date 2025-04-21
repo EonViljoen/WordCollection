@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { HttpMethod } from '../enum/httpMethods';
+import { Observable } from 'rxjs';
 
 type WordApiAction =
   | string
@@ -14,7 +15,7 @@ export class ApiService{
 
     private http = inject(HttpClient)
     
-    httpSubmit({
+    httpSubmit<T>({
             apiAction,
             method,
             body,
@@ -24,7 +25,7 @@ export class ApiService{
             method: HttpMethod;
             body?: any;
             params?: any;
-        })  {
+        }) : Observable<T> {
         
         let url : string;
 
@@ -36,13 +37,13 @@ export class ApiService{
 
         switch (method) {
             case 'GET' :
-                return this.http.get(url);
+                return this.http.get<T>(url);
             case 'POST' :
-                return this.http.post(url, body);
+                return this.http.post<T>(url, body);
             case 'DELETE' :
-                return this.http.delete(url);
+                return this.http.delete<T>(url);
             case 'PUT' :
-                return this.http.put(url, body);
+                return this.http.put<T>(url, body);
             default :
                 throw new Error('Unsupported HTTP Method');
         }

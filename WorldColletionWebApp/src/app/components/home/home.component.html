@@ -1,51 +1,39 @@
-
-<h4 class="home-header">
-    Select a Word Type to enter: 
-</h4>
-<mat-tab-group dynamicHeight mat-stretch-tabs="true" mat-align-tabs="center" class="tab-group">
-    <mat-tab label="Noun" class="example-large-box mat-elevation-z4">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Noun"></app-submission>
+<mat-drawer-container autosize>
+    <mat-drawer #drawer class="sidenav">
+        <button (click)="setView(homeView.GetWordPage); drawer.toggle()"  mat-button class="nav-button">
+            Get Specifc Word
+        </button>
+        <button (click)="setView(homeView.GetWordsPage); drawer.toggle()" mat-button class="nav-button">
+            View Created Word Collection
+        </button>
+        <button (click)="setView(homeView.CreateWordPage); drawer.toggle()" mat-button class="nav-button">
+            Enter a New Word
+        </button>
+        <button (click)="setView(homeView.UpdateWordPage); drawer.toggle()" mat-button class="nav-button">
+            Update an Existing Word
+        </button>
+        <button (click)="setView(homeView.DeleteWordPage); drawer.toggle()" mat-button class="nav-button">
+            Delete an Existing Word
+        </button>
+    </mat-drawer>
+    
+    <mat-drawer-content>
+        <mat-toolbar color="primary">
+          <button mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon> <!-- Hamburger icon -->
+          </button>
+          <span>Word Collection</span>
+        </mat-toolbar>
+        <div class="main-page">
+            <div style="width: 90%;">
+                <div *ngIf="currentView === homeView.LandingPage"><h1>Landing page</h1></div>
+                <app-get-word *ngIf="currentView === homeView.GetWordPage"></app-get-word>
+                <app-get-words *ngIf="currentView === homeView.GetWordsPage" [visible]="currentView === homeView.GetWordsPage"></app-get-words>
+                <app-create-word *ngIf="currentView === homeView.CreateWordPage"></app-create-word>
+                <app-update-word *ngIf="currentView === homeView.UpdateWordPage"></app-update-word>
+                <app-delete-word *ngIf="currentView === homeView.DeleteWordPage"></app-delete-word> 
+            </div>
         </div>
-    </mat-tab>
-    <mat-tab label="Verb" class="tab">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Verb"></app-submission>
-        </div>
-    </mat-tab>
-    <mat-tab label="Adjective" class="tab">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Adjective"></app-submission>
-        </div>
-    </mat-tab>
-    <mat-tab label="Adverb" class="tab">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Adverb"></app-submission>
-        </div>     
-    </mat-tab>
-    <mat-tab label="Pronoun" class="tab">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Pronoun"></app-submission>
-        </div>
-    </mat-tab>
-    <mat-tab label="Preposition" class="tab">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Preposition"></app-submission>
-        </div>      
-    </mat-tab>
-    <mat-tab label="Interjection" class="tab">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Interjection"></app-submission>
-        </div> 
-    </mat-tab>
-    <mat-tab label="Conjuntion" class="tab">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Conjuntion"></app-submission>
-        </div>
-    </mat-tab>
-    <mat-tab label="Determiner" class="tab">
-        <div class="tab">
-            <app-submission [wordType]="wordType.Determiner"></app-submission>
-        </div>
-    </mat-tab>
-</mat-tab-group>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  

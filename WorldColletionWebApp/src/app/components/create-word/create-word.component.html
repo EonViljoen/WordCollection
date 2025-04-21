@@ -1,0 +1,50 @@
+<h4 class="creation-header">
+    Select a Word Type to enter: 
+</h4>
+<mat-tab-group dynamicHeight mat-stretch-tabs="true" mat-align-tabs="center" class="tab-group">
+    <mat-tab label="Noun" class="example-large-box mat-elevation-z4">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Noun"></app-submission>
+        </div>
+    </mat-tab>
+    <mat-tab label="Verb" class="tab">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Verb"></app-submission>
+        </div>
+    </mat-tab>
+    <mat-tab label="Adjective" class="tab">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Adjective"></app-submission>
+        </div>
+    </mat-tab>
+    <mat-tab label="Adverb" class="tab">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Adverb"></app-submission>
+        </div>     
+    </mat-tab>
+    <mat-tab label="Pronoun" class="tab">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Pronoun"></app-submission>
+        </div>
+    </mat-tab>
+    <mat-tab label="Preposition" class="tab">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Preposition"></app-submission>
+        </div>      
+    </mat-tab>
+    <mat-tab label="Interjection" class="tab">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Interjection"></app-submission>
+        </div> 
+    </mat-tab>
+    <mat-tab label="Conjunction" class="tab">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Conjunction"></app-submission>
+        </div>
+    </mat-tab>
+    <mat-tab label="Determiner" class="tab">
+        <div class="tab">
+            <app-submission [wordType]="wordType.Determiner"></app-submission>
+        </div>
+    </mat-tab>
+</mat-tab-group>

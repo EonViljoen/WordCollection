@@ -3,6 +3,7 @@ import { IWord } from "../interfaces/word";
 import { ApiService } from "./api.service";
 import { ApiEndpoints } from "../endpointDefinition/apiEndpoints";
 import { HttpMethod } from "../enum/httpMethods";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -13,29 +14,19 @@ export class WordCollectionService{
     private apiService = inject(ApiService);
 
     // Get All Words
-    GET_Words(){
-        this.apiService.httpSubmit({
-            apiAction: ApiEndpoints.Word.GET_Words,
-            method: HttpMethod.GET
-        }).subscribe( res => {
-            console.log(res);
-        },
-        (error) => {
-            console.log('error : ' + error);
+    GET_Words(): Observable<IWord[]> {
+        return this.apiService.httpSubmit<IWord[]>({
+          apiAction: ApiEndpoints.Word.GET_Words,
+          method: HttpMethod.GET
         });
-    }
+      }
 
     // Get Single Word
-    GET_Word(id: number){
-        this.apiService.httpSubmit({
+    GET_Word(id: number): Observable<IWord[]> {
+        return this.apiService.httpSubmit<IWord[]>({
             apiAction: ApiEndpoints.Word.GET_Word,
             method: HttpMethod.GET,
             params : id
-        }).subscribe( res => {
-            console.log(res);
-        },
-        (error) => {
-            console.log('error : ' + error);
         });
     }
 

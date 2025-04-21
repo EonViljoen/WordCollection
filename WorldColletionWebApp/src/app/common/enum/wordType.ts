@@ -6,6 +6,6 @@ export enum WordType {
     Pronoun = 4,
     Preposition = 5,
     Interjection = 6,
-    Conjuntion = 7,
+    Conjunction = 7,
     Determiner = 8,
 }
