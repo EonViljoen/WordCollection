@@ -5,6 +5,7 @@ import { WordType } from '../../common/enum/wordType';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HomeView } from '../../common/enum/homeView';
+import { HttpMethod } from '../../common/enum/httpMethods';
 
 @Component({
   selector: 'app-create-word',
@@ -16,6 +17,7 @@ import { HomeView } from '../../common/enum/homeView';
 export class CreateWordComponent {
 
   wordType = WordType;
+  httpMethod = HttpMethod;
 
   currentView: HomeView =  HomeView.CreateWordPage;
   homeView = HomeView;

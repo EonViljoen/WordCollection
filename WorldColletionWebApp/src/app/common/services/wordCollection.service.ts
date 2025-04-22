@@ -45,16 +45,11 @@ export class WordCollectionService{
     }
 
     // Delete Single Word
-    DELETE_Word(id: number){
-        this.apiService.httpSubmit({
+    DELETE_Word(id: number): Observable<any>{
+        return this.apiService.httpSubmit<any>({
             apiAction: ApiEndpoints.Word.DELETE_Word,
             method: HttpMethod.DELETE,
             params : id
-        }).subscribe( res => {
-            console.log(res);
-        },
-        (error) => {
-            console.log('error : ' + error);
         });
     }
 

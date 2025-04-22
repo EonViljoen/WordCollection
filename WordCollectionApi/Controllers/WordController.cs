@@ -42,7 +42,7 @@ namespace WordCollectionApi.Controllers
             return Ok(word);
         }
 
-        [HttpDelete("DELETE_Word")]
+        [HttpDelete("DELETE_Word/{id}")]
         public async Task<ActionResult<Word>> DELETEword(int id)
         {
             var word = await _wordService.GetWordAsync(id);

@@ -1,4 +1,4 @@
-<mat-drawer-container autosize>
+<mat-drawer-container autosize class="container">
     <mat-drawer #drawer class="sidenav">
         <button (click)="setView(homeView.GetWordPage); drawer.toggle()"  mat-button class="nav-button">
             Get Specifc Word
@@ -20,7 +20,7 @@
     <mat-drawer-content>
         <mat-toolbar color="primary">
           <button mat-icon-button (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon> <!-- Hamburger icon -->
+            <mat-icon>menu</mat-icon>
           </button>
           <span>Word Collection</span>
         </mat-toolbar>

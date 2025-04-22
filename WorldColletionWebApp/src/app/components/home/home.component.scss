@@ -1,8 +1,12 @@
+.container {
+    height: 100%;
+}
+
 .main-page {
-display: flex;
-height: 100%;
-align-items: center;
-justify-content: center;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .sidenav {
