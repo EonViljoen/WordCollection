@@ -26,7 +26,7 @@
         </mat-toolbar>
         <div class="main-page">
             <div style="width: 90%;">
-                <div *ngIf="currentView === homeView.LandingPage"><h1>Landing page</h1></div>
+                <div *ngIf="currentView === homeView.LandingPage"><h1 class="header">Landing page</h1></div>
                 <app-get-word *ngIf="currentView === homeView.GetWordPage"></app-get-word>
                 <app-get-words *ngIf="currentView === homeView.GetWordsPage" [visible]="currentView === homeView.GetWordsPage"></app-get-words>
                 <app-create-word *ngIf="currentView === homeView.CreateWordPage"></app-create-word>

@@ -41,6 +41,10 @@ export class SubmissionComponent {
         this.deleteWord();
         break;
 
+      case HttpMethod.PUT:
+        this.updateWord();
+        break;
+
       default:
         console.warn('Unsupported HTTP method:', method);
         break;
@@ -53,12 +57,9 @@ export class SubmissionComponent {
 
     try{
       wordId = parseInt(capturedItem);
-      console.log('did a thing?')
-
     }
     catch(error){
       if (capturedItem === undefined){
-        console.log('Id not given, ');
         return;
       }
       else {
@@ -67,7 +68,6 @@ export class SubmissionComponent {
 
     }
     this.wordService.DELETE_Word(wordId).subscribe(res => {
-      console.log('worked?')
       console.log(res)
     });
   }
@@ -104,6 +104,9 @@ export class SubmissionComponent {
       type: wordType,
       word: this.submittedItem
     });
+  }
+
+  updateWord(){
   }
   
 }

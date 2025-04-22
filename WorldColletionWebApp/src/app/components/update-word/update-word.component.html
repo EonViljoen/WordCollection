@@ -1,1 +1,19 @@
-<p>update-word works!</p>
+<h4 class="header">
+    Update an Incorrect Word: 
+</h4>
+
+<div class="container">
+    <input type="text"
+        matInput
+        placeholder="Search an Existing Word"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        class="auto-complete-input">
+    <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+        <mat-option *ngFor="let w of filteredWords | async" [value]="w.word">
+            {{ w.word }}
+        </mat-option>
+    </mat-autocomplete>
+    <app-submission [httpAction]="httpMethod.PUT" class="border"></app-submission>
+</div>
+

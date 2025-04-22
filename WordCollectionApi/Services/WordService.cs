@@ -40,6 +40,11 @@ namespace WordCollectionApi.Services
         public async Task RemoveWordAsync(int id) =>
             await _wordCollection.DeleteOneAsync(x => x.WordId == id);
 
+        //public async Task GetIdByWord()
+        //{
+        //    await _wordCollection.Find(x => x.)
+        //}
+
         public async Task<int> GetNextSeqNo(string seqName)
         {
             var seqFilter = Builders<SequenceNumber>.Filter.Eq(
