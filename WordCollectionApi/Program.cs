@@ -86,8 +86,8 @@ builder.Services.AddAuthentication(options =>
 })
 .AddGitHub(options =>
 {
-    options.ClientId = builder.Configuration["GitHub:ClientId"];
-    options.ClientSecret = builder.Configuration["GitHub:ClientSecret"];
+    options.ClientId = builder.Configuration["GitHub_ClientId"];
+    options.ClientSecret = builder.Configuration["GitHub_ClientSecret"];
     options.CallbackPath = "/signin-github";
 
     options.Events.OnCreatingTicket = async context =>
