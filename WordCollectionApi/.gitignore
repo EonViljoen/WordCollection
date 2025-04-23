@@ -400,4 +400,5 @@ FodyWeavers.xsd
 *.sln.iml
 
 # Ignore log files
-.logs/
+logs/
+WordCollectionLogs/
