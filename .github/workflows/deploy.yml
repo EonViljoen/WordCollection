@@ -1,0 +1,43 @@
+name: Deploy WordCollection
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy-webapp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📦 Install dependencies
+        working-directory: WordCollectionWebApp
+        run: npm install
+
+      - name: 🛠️ Build Angular app
+        working-directory: WordCollectionWebApp
+        run: npm run build -- --base-href="/WordCollection/"
+
+      - name: 🚀 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./WordCollectionWebApp/dist/word-collection-web-app
+          destination_dir: .
+
+  trigger-render-api:
+    needs: build-deploy-webapp
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Trigger Render Deploy for WordCollectionApi
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
