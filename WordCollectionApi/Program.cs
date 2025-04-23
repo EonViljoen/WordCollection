@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Security.Claims;
 using WordCollectionApi.Common;
+using Microsoft.AspNetCore.Authentication;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -124,6 +125,14 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/login/github", async (HttpContext context) =>
+{
+    await context.ChallengeAsync("GitHub", new AuthenticationProperties
+    {
+        RedirectUri = "/signin-github"
+    });
+});
 
 try
 {

@@ -247,3 +247,19 @@ System.ArgumentException: The 'ClientId' option must be provided. (Parameter 'Cl
 2025-04-23 18:14:09.458 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
 2025-04-23 18:14:09.512 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 42.9590 ms
 2025-04-23 18:14:09.519 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 61.8872ms
+2025-04-23 18:37:19.810 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 18:37:20.055 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 18:37:20.056 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 18:37:20.145 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 18:37:20.146 +02:00 [INF] Hosting environment: Development
+2025-04-23 18:37:20.147 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 18:37:20.704 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 18:37:20.875 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 71.7663 ms
+2025-04-23 18:37:20.883 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 185.7823ms
+2025-04-23 18:37:20.914 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 18:37:20.931 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 18:37:20.933 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 19.489ms
+2025-04-23 18:37:20.972 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.0885ms
+2025-04-23 18:37:21.032 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 18:37:21.055 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 18.5861 ms
+2025-04-23 18:37:21.060 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.884ms
