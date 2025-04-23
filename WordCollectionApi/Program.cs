@@ -1,9 +1,14 @@
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using WordCollectionApi.Models;
 using WordCollectionApi.Services;
 using Serilog;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Security.Claims;
+using WordCollectionApi.Common;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,8 +64,43 @@ builder.Services.AddCors(policy =>
 builder.Services.AddControllers()
     .AddJsonOptions(
     options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+})
+.AddGitHub(options =>
+{
+    options.ClientId = builder.Configuration["GitHub:ClientId"];
+    options.ClientSecret = builder.Configuration["GitHub:ClientSecret"];
+    options.CallbackPath = "/signin-github";
+
+    options.Events.OnCreatingTicket = async context =>
+    {
+        var email = context.Identity?.FindFirst(ClaimTypes.Email)?.Value;
+        var name = context.Identity?.Name;
+
+        // Issue JWT here and redirect back to frontend with token in URL
+        var jwt = GenerateJwtToken.GenerateToken(email, name, builder); // your method
+        context.Response.Redirect($"https://your-angular-app.com/login-success?token={jwt}");
+    };
+});
+
 
 
 var app = builder.Build();
@@ -80,6 +120,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowGHPages");
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -53,3 +53,64 @@
 2025-04-23 09:26:09.490 +02:00 [INF] Executed endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
 2025-04-23 09:26:09.490 +02:00 [INF] HTTP GET /api/Word/GET_Words responded 200 in 7.2008 ms
 2025-04-23 09:26:09.490 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/api/Word/GET_Words - 200 null application/json; charset=utf-8 8.4998ms
+2025-04-23 13:49:14.569 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 13:49:14.657 +02:00 [INF] Creating key {93ddaf55-077f-435e-b469-b02263005c9d} with creation date 2025-04-23 11:49:14Z, activation date 2025-04-23 11:49:14Z, and expiration date 2025-07-22 11:49:14Z.
+2025-04-23 13:49:14.665 +02:00 [INF] Writing data to file 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys\key-93ddaf55-077f-435e-b469-b02263005c9d.xml'.
+2025-04-23 13:49:14.954 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 13:49:14.954 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 13:49:15.051 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 13:49:15.051 +02:00 [INF] Hosting environment: Development
+2025-04-23 13:49:15.051 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 13:49:15.511 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 13:49:15.710 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 68.9185 ms
+2025-04-23 13:49:15.714 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 211.1598ms
+2025-04-23 13:49:15.749 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 13:49:15.749 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 13:49:15.755 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 6.1658ms
+2025-04-23 13:49:15.807 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.1119ms
+2025-04-23 13:49:15.962 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 13:49:15.979 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 15.9402 ms
+2025-04-23 13:49:15.981 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.8123ms
+2025-04-23 13:49:19.821 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/api/Word/GET_Words - null null
+2025-04-23 13:49:19.836 +02:00 [ERR] HTTP GET /api/Word/GET_Words responded 500 in 12.1461 ms
+System.ArgumentException: The 'ClientId' option must be provided. (Parameter 'ClientId')
+   at Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Validate()
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.Validate(String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationBuilder.<>c__DisplayClass4_0`2.<AddSchemeHelper>b__1(TOptions o)
+   at Microsoft.Extensions.Options.ValidateOptions`1.Validate(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.<>c.<Get>b__10_0(String name, IOptionsFactory`1 factory)
+   at Microsoft.Extensions.Options.OptionsCache`1.<>c__DisplayClass3_1`1.<GetOrAdd>b__2()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-04-23 13:49:19.858 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: The 'ClientId' option must be provided. (Parameter 'ClientId')
+   at Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Validate()
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.Validate(String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationBuilder.<>c__DisplayClass4_0`2.<AddSchemeHelper>b__1(TOptions o)
+   at Microsoft.Extensions.Options.ValidateOptions`1.Validate(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.<>c.<Get>b__10_0(String name, IOptionsFactory`1 factory)
+   at Microsoft.Extensions.Options.OptionsCache`1.<>c__DisplayClass3_1`1.<GetOrAdd>b__2()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-23 13:49:19.864 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/api/Word/GET_Words - 500 null text/plain; charset=utf-8 44.0013ms
