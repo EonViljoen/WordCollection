@@ -1,12 +1,23 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
-using Microsoft.Identity.Web;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using WordCollectionApi.Models;
 using WordCollectionApi.Services;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Read the configuration file (appsettings.json)
+var configuration = builder.Configuration;
+
+// Set up Serilog to read from the configuration file
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(configuration)  // Read from appsettings.json
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)  // Log to a file
+    .CreateLogger();
+
+// Add logging configuration using Serilog
+builder.Host.UseSerilog();
 
 // Configure DB settings from appsettings.json
 builder.Services.Configure<DbSettings>(
@@ -52,8 +63,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
 var app = builder.Build();
+
+// Use Serilog for request logging
+app.UseSerilogRequestLogging();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -72,3 +85,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+app.Lifetime.ApplicationStopped.Register(Log.CloseAndFlush);

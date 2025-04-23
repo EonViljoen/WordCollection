@@ -9,13 +9,13 @@ import {AsyncPipe, CommonModule} from '@angular/common';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { IWord } from '../../common/interfaces/word';
 import { WordCollectionService } from '../../common/services/wordCollection.service';
-
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-update-word',
+  standalone: true,
   imports: [SubmissionComponent, FormsModule, MatAutocompleteModule, ReactiveFormsModule,
     AsyncPipe, CommonModule],
-  standalone: true,
   templateUrl: './update-word.component.html',
   styleUrl: './update-word.component.scss'
 })
@@ -30,6 +30,8 @@ export class UpdateWordComponent {
   control = new FormControl('');
   existingWords: IWord[] = [];
   filteredWords: Observable<IWord[]> | undefined;
+
+  selectedWord: IWord | undefined;
 
   ngOnInit(): void {
 
@@ -48,14 +50,27 @@ export class UpdateWordComponent {
     );
   }
 
-  private filterWords(rawInput: string): IWord[] {
+  handleUpdatedWord(updated: IWord) {
+    const index = this.existingWords.findIndex(w => w.id === updated.id);
+    if (index !== -1) {
+      this.existingWords[index] = updated;
+      this.control.setValue('');
+    }
+  }
+  
+  onOptionSelected(event: MatAutocompleteSelectedEvent) {
+    const selectedText = event.option.value;
+    this.selectedWord = this.existingWords.find(w => w.word === selectedText);
+  }
+
+  filterWords(rawInput: string): IWord[] {
     const norm = this.normalize(rawInput);
     return this.existingWords.filter(w =>
       this.normalize(w.word).includes(norm)
     );
   }
 
-  private normalize(v: string): string {
+  normalize(v: string): string {
     return v.toLowerCase().replace(/\s+/g, '');
   }
 

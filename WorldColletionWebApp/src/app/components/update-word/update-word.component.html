@@ -1,7 +1,6 @@
 <h4 class="header">
     Update an Incorrect Word: 
 </h4>
-
 <div class="container">
     <input type="text"
         matInput
@@ -9,11 +8,15 @@
         [formControl]="control"
         [matAutocomplete]="auto"
         class="auto-complete-input">
-    <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
-        <mat-option *ngFor="let w of filteredWords | async" [value]="w.word">
+    <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption (optionSelected)="onOptionSelected($event)">
+        <mat-option *ngFor="let w of filteredWords | async" 
+        [value]="w.word" (onSelectionChange)="selectedWord = w">
             {{ w.word }}
         </mat-option>
     </mat-autocomplete>
-    <app-submission [httpAction]="httpMethod.PUT" class="border"></app-submission>
+    <app-submission [httpAction]="httpMethod.PUT" 
+    [selectedWord]="selectedWord"
+    (outputedWord)="handleUpdatedWord($event)" 
+    class="border"></app-submission>
 </div>
 

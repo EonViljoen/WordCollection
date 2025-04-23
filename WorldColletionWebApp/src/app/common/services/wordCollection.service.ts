@@ -54,17 +54,12 @@ export class WordCollectionService{
     }
 
     // Update Single Word
-    PUT_Word(id: number, word: IWord){
-        this.apiService.httpSubmit({
+    PUT_Word(id: number, word: IWord): Observable<void>{
+        return this.apiService.httpSubmit<void>({
             apiAction: ApiEndpoints.Word.PUT_Word,
             method: HttpMethod.PUT,
             params : id,
             body: word
-        }).subscribe( res => {
-            console.log(res);
-        },
-        (error) => {
-            console.log('error : ' + error);
         });
     }
 }

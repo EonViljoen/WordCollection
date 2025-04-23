@@ -1,0 +1,55 @@
+2025-04-23 09:25:09.402 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 09:25:09.426 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 09:25:09.510 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 09:25:09.511 +02:00 [INF] Hosting environment: Development
+2025-04-23 09:25:09.511 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 09:25:10.248 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 09:25:10.438 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 60.2543 ms
+2025-04-23 09:25:10.445 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 204.3284ms
+2025-04-23 09:25:10.468 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 09:25:10.473 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 4.757ms
+2025-04-23 09:25:10.491 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 09:25:10.531 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.8408ms
+2025-04-23 09:25:10.581 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 09:25:10.595 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 13.9633 ms
+2025-04-23 09:25:10.597 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.9042ms
+2025-04-23 09:25:41.228 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/api/Word/GET_Words - null null
+2025-04-23 09:25:41.234 +02:00 [INF] CORS policy execution successful.
+2025-04-23 09:25:41.237 +02:00 [INF] Executing endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
+2025-04-23 09:25:41.267 +02:00 [INF] Route matched with {action = "GETwords", controller = "Word"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[WordCollectionApi.Models.Word]]] GETwords() on controller WordCollectionApi.Controllers.WordController (WordCollectionApi).
+2025-04-23 09:25:41.711 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[WordCollectionApi.Models.Word, WordCollectionApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-23 09:25:41.721 +02:00 [INF] Executed action WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi) in 449.6441ms
+2025-04-23 09:25:41.722 +02:00 [INF] Executed endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
+2025-04-23 09:25:41.722 +02:00 [INF] HTTP GET /api/Word/GET_Words responded 200 in 490.8032 ms
+2025-04-23 09:25:41.723 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/api/Word/GET_Words - 200 null application/json; charset=utf-8 495.7572ms
+2025-04-23 09:25:49.525 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7062/api/Word/POST_Word - null null
+2025-04-23 09:25:49.528 +02:00 [INF] CORS policy execution successful.
+2025-04-23 09:25:49.530 +02:00 [INF] HTTP OPTIONS /api/Word/POST_Word responded 204 in 2.0766 ms
+2025-04-23 09:25:49.530 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7062/api/Word/POST_Word - 204 null null 4.8816ms
+2025-04-23 09:25:49.547 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7062/api/Word/POST_Word - application/json 33
+2025-04-23 09:25:49.549 +02:00 [INF] CORS policy execution successful.
+2025-04-23 09:25:49.550 +02:00 [INF] Executing endpoint 'WordCollectionApi.Controllers.WordController.POSTword (WordCollectionApi)'
+2025-04-23 09:25:49.567 +02:00 [INF] Route matched with {action = "POSTword", controller = "Word"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[WordCollectionApi.Models.Word]] POSTword(WordCollectionApi.Models.Word) on controller WordCollectionApi.Controllers.WordController (WordCollectionApi).
+2025-04-23 09:25:49.801 +02:00 [INF] Executing OkObjectResult, writing value of type 'WordCollectionApi.Models.Word'.
+2025-04-23 09:25:49.802 +02:00 [INF] Executed action WordCollectionApi.Controllers.WordController.POSTword (WordCollectionApi) in 233.8963ms
+2025-04-23 09:25:49.802 +02:00 [INF] Executed endpoint 'WordCollectionApi.Controllers.WordController.POSTword (WordCollectionApi)'
+2025-04-23 09:25:49.802 +02:00 [INF] HTTP POST /api/Word/POST_Word responded 200 in 253.4201 ms
+2025-04-23 09:25:49.803 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7062/api/Word/POST_Word - 200 null application/json; charset=utf-8 255.8612ms
+2025-04-23 09:26:07.147 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/api/Word/GET_Words - null null
+2025-04-23 09:26:07.149 +02:00 [INF] CORS policy execution successful.
+2025-04-23 09:26:07.149 +02:00 [INF] Executing endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
+2025-04-23 09:26:07.150 +02:00 [INF] Route matched with {action = "GETwords", controller = "Word"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[WordCollectionApi.Models.Word]]] GETwords() on controller WordCollectionApi.Controllers.WordController (WordCollectionApi).
+2025-04-23 09:26:07.158 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[WordCollectionApi.Models.Word, WordCollectionApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-23 09:26:07.159 +02:00 [INF] Executed action WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi) in 9.2148ms
+2025-04-23 09:26:07.159 +02:00 [INF] Executed endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
+2025-04-23 09:26:07.159 +02:00 [INF] HTTP GET /api/Word/GET_Words responded 200 in 10.1447 ms
+2025-04-23 09:26:07.160 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/api/Word/GET_Words - 200 null application/json; charset=utf-8 13.5907ms
+2025-04-23 09:26:09.482 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/api/Word/GET_Words - null null
+2025-04-23 09:26:09.483 +02:00 [INF] CORS policy execution successful.
+2025-04-23 09:26:09.483 +02:00 [INF] Executing endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
+2025-04-23 09:26:09.483 +02:00 [INF] Route matched with {action = "GETwords", controller = "Word"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[WordCollectionApi.Models.Word]]] GETwords() on controller WordCollectionApi.Controllers.WordController (WordCollectionApi).
+2025-04-23 09:26:09.489 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[WordCollectionApi.Models.Word, WordCollectionApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-23 09:26:09.489 +02:00 [INF] Executed action WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi) in 6.6662ms
+2025-04-23 09:26:09.490 +02:00 [INF] Executed endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
+2025-04-23 09:26:09.490 +02:00 [INF] HTTP GET /api/Word/GET_Words responded 200 in 7.2008 ms
+2025-04-23 09:26:09.490 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/api/Word/GET_Words - 200 null application/json; charset=utf-8 8.4998ms

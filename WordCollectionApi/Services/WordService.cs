@@ -31,19 +31,13 @@ namespace WordCollectionApi.Services
         {
             newWord.WordId = await GetNextSeqNo("WordId");
             await _wordCollection.InsertOneAsync(newWord);
-        }
-            
+        }     
 
         public async Task UpdateWordAsync(int id, Word updatedWord) =>
             await _wordCollection.ReplaceOneAsync(x => x.WordId == id, updatedWord);
 
         public async Task RemoveWordAsync(int id) =>
             await _wordCollection.DeleteOneAsync(x => x.WordId == id);
-
-        //public async Task GetIdByWord()
-        //{
-        //    await _wordCollection.Find(x => x.)
-        //}
 
         public async Task<int> GetNextSeqNo(string seqName)
         {

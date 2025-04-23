@@ -55,15 +55,18 @@ namespace WordCollectionApi.Controllers
             else { 
                 return NotFound();
             }
+            
         }
 
-        [HttpPut("PUT_Word")]
-        public async Task<ActionResult<Word>> PUTword(int id, Word updatedWord)
+        [HttpPut("PUT_Word/{id}")]
+        public async Task<ActionResult<Word>> PUTword([FromRoute]int id, [FromBody] Word updatedWord)
         {
-            var word = await _wordService.GetWordAsync(id);
+            var existingWord = await _wordService.GetWordAsync(id);
 
-            if (word != null)
+            if (existingWord != null)
             {
+                updatedWord.WordId = id;
+
                 await _wordService.UpdateWordAsync(id, updatedWord);
                 return Ok();
             }
