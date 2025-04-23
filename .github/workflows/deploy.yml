@@ -22,18 +22,18 @@ jobs:
           node-version: '18'
 
       - name: 📦 Install dependencies
-        working-directory: ./WordCollectionWebApp
+        working-directory: ./WorldColletionWebApp
         run: npm install
 
       - name: 🛠️ Build Angular app
-        working-directory: ./WordCollectionWebApp
+        working-directory: ./WorldColletionWebApp
         run: npm run build -- --base-href="/WordCollection/"
 
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./WordCollectionWebApp/dist/word-collection-web-app
+          publish_dir: ./WorldColletionWebApp/dist/word-collection-web-app
           destination_dir: .
 
   trigger-render-api:
