@@ -97,7 +97,7 @@ builder.Services.AddAuthentication(options =>
 
         // Issue JWT here and redirect back to frontend with token in URL
         var jwt = GenerateJwtToken.GenerateToken(email, name, builder); // your method
-        context.Response.Redirect($"https://your-angular-app.com/login-success?token={jwt}");
+        context.Response.Redirect($"https://eonviljoen.github.io/WordCollection/login-success?token={jwt}");
     };
 });
 
