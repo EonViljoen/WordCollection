@@ -22,7 +22,7 @@ jobs:
           node-version: '18'
 
       - name: 📦 Install dependencies
-        working-directory: ./WorldColletionWebApp
+        working-directory: ./WordCollectionWebApp
         run: npm install
 
       - name: 🛠️ Build Angular app
