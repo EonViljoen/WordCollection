@@ -5,34 +5,32 @@ Fullstack project to capture words, group by word type, to compile a collection 
 # Full-Stack System Checklist (Angular + ASP.NET Core + MongoDB) provided by ChatGPT on what is required for a Full-Stack System
 
 ## 1. Frontend (Client-Side)
-- [ ] Built with a modern framework (Angular / React / Vue)
-- [ ] Routing system in place (e.g., Angular Router)
-- [ ] Consumes backend API via HttpClient or fetch
-- [ ] Form inputs with validation (template or reactive forms)
+- [x] Built with a modern framework (Angular)
+- [ ] Routing system in place (Angular Router)
+- [x] Consumes backend API via HttpClient
+- [x] Form inputs with validation (template or reactive forms)
 - [ ] Responsive design (desktop + mobile)
-- [ ] Uses environment variables (e.g., `environment.ts`) for config
-- [ ] Global error handling for failed HTTP requests
+- [x] Uses environment variables (e.g., `environment.ts`) for config
+- [x] Global error handling for failed HTTP requests
 
 ---
 
 ## 2. Backend (Server-Side)
-- [ ] Built with a modern backend framework (ASP.NET Core, Node.js, Django, etc.)
-- [ ] RESTful endpoints with correct HTTP verbs (GET, POST, PUT, DELETE)
-- [ ] Controllers and service layers are properly separated
+- [x] Built with a modern backend framework (ASP.NET Core)
+- [x] RESTful endpoints with correct HTTP verbs (GET, POST, PUT, DELETE)
+- [x] Controllers and service layers are properly separated
 - [ ] Input validation and request body checks
 - [ ] Authentication (e.g., JWT)
 - [ ] Authorization (e.g., role-based access)
-- [ ] Exception handling middleware
-- [ ] Environment configuration (e.g., `appsettings.json`, `.env`)
+- [x] Exception handling middleware
+- [x] Environment configuration (e.g., `appsettings.json`, `.env`)
 
 ---
 
 ## 3. Database
-- [ ] Connected using secure, configurable connection strings
-- [ ] Schema or document structure well defined
-- [ ] Supports full CRUD operations via backend
-- [ ] Uses indexes, constraints, or schema validation
-- [ ] Data migration or seed setup (if applicable)
+- [x] Connected using secure, configurable connection strings
+- [x] Schema or document structure well defined
+- [x] Supports full CRUD operations via backend
 
 ---
 
@@ -45,37 +43,30 @@ Fullstack project to capture words, group by word type, to compile a collection 
 ---
 
 ## 5. Configuration Management
-- [ ] No hardcoded values (URLs, secrets, tokens)
-- [ ] Externalized configs per environment (dev, staging, prod)
-- [ ] Sensitive config stored in secrets manager or env vars
+- [x] No hardcoded values (URLs, secrets, tokens)
+- [x] Externalized configs per environment (dev, staging, prod)
+- [x] Sensitive config stored in secrets manager or env vars
 
 ---
 
 ## 6. DevOps / CI/CD
-- [ ] Git repository with clean commit history
-- [ ] CI/CD pipeline set up (GitHub Actions / GitLab CI / Azure DevOps)
-- [ ] Linting and formatting integrated in pipeline
-- [ ] Tests executed during CI
-- [ ] Dockerfile and docker-compose for local and production
-- [ ] Frontend and backend can run in containers independently
+- [x] Git repository with clean commit history
+- [x] CI/CD pipeline set up (GitHub Actions / GitLab CI / Azure DevOps)
+- [x] Dockerfile and docker-compose for production
 
 ---
 
 ## 7. Hosting & Deployment
-- [ ] Backend hosted on a cloud platform (Azure, Render, etc.)
-- [ ] Frontend deployed to CDN (Netlify, Vercel, Firebase Hosting)
+- [x] Backend hosted on a cloud platform (Render)
+- [x] Frontend deployed to CDN (Github Pages)
 - [ ] HTTPS/SSL enabled
-- [ ] Custom domain set (optional but preferred)
-- [ ] Deployment is automated or well-documented
+- [x] Deployment is automated
 
 ---
 
 ## 8. Monitoring & Logging
-- [ ] Logging is implemented (Serilog, Winston, etc.)
-- [ ] Centralized or external logging (optional)
-- [ ] Error tracking enabled (e.g., Sentry, Application Insights)
+- [x] Logging is implemented (Serilog)
 - [ ] Health check endpoint available
-- [ ] Performance monitoring (optional)
 
 ---
 
