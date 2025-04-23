@@ -1,6 +1,6 @@
 <mat-drawer-container autosize class="container">
     <mat-drawer #drawer class="sidenav">
-        <ng-container *ngIf="isAuthorized">
+        <!-- <ng-container *ngIf="isAuthorized"> -->
             <button (click)="setView(homeView.GetWordPage); drawer.toggle()"  mat-button class="nav-button">
                 Get Specifc Word
             </button>
@@ -16,7 +16,7 @@
             <button (click)="setView(homeView.DeleteWordPage); drawer.toggle()" mat-button class="nav-button">
                 Delete an Existing Word
             </button>
-        </ng-container>
+        <!-- </ng-container> -->
     </mat-drawer>
     
     <mat-drawer-content>
@@ -32,7 +32,7 @@
                     <h1 class="header">
                     Landing page
                     </h1>
-                    <a href="https://wordcollectionapi.onrender.com/signin-github">Login with GitHub</a>
+                    <!-- <a href="https://wordcollectionapi.onrender.com/signin-github">Login with GitHub</a> -->
                 </div>
                 <app-get-word *ngIf="currentView === homeView.GetWordPage"></app-get-word>
                 <app-get-words *ngIf="currentView === homeView.GetWordsPage" [visible]="currentView === homeView.GetWordsPage"></app-get-words>

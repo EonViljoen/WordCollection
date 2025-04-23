@@ -263,3 +263,44 @@ System.ArgumentException: The 'ClientId' option must be provided. (Parameter 'Cl
 2025-04-23 18:37:21.032 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
 2025-04-23 18:37:21.055 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 18.5861 ms
 2025-04-23 18:37:21.060 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.884ms
+2025-04-23 18:42:30.536 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 18:42:30.732 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 18:42:30.735 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 18:42:30.797 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 18:42:30.800 +02:00 [INF] Hosting environment: Development
+2025-04-23 18:42:30.800 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 18:42:31.446 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 18:42:31.608 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 55.1398 ms
+2025-04-23 18:42:31.618 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 178.938ms
+2025-04-23 18:42:31.633 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 18:42:31.645 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 11.3985ms
+2025-04-23 18:42:31.655 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 18:42:31.702 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.1356ms
+2025-04-23 18:42:31.752 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 18:42:31.768 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 12.7157 ms
+2025-04-23 18:42:31.771 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.5417ms
+2025-04-23 18:47:37.809 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 18:47:37.857 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 18:47:37.988 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 18:47:37.991 +02:00 [INF] Hosting environment: Development
+2025-04-23 18:47:37.994 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 18:47:38.937 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 18:47:39.267 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 114.4710 ms
+2025-04-23 18:47:39.284 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 354.9186ms
+2025-04-23 18:47:39.318 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 18:47:39.340 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 21.5106ms
+2025-04-23 18:47:39.343 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 18:47:39.414 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.3901ms
+2025-04-23 18:47:39.486 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 18:47:39.513 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 20.4741 ms
+2025-04-23 18:47:39.520 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 33.7624ms
+2025-04-23 18:47:57.879 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/api/Word/GET_Words - null null
+2025-04-23 18:47:57.931 +02:00 [INF] CORS policy execution failed.
+2025-04-23 18:47:57.940 +02:00 [INF] Request origin http://localhost:4200 does not have permission to access the resource.
+2025-04-23 18:47:57.968 +02:00 [INF] Executing endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
+2025-04-23 18:47:58.025 +02:00 [INF] Route matched with {action = "GETwords", controller = "Word"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[WordCollectionApi.Models.Word]]] GETwords() on controller WordCollectionApi.Controllers.WordController (WordCollectionApi).
+2025-04-23 18:47:58.648 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[WordCollectionApi.Models.Word, WordCollectionApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-23 18:47:58.680 +02:00 [INF] Executed action WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi) in 644.3763ms
+2025-04-23 18:47:58.685 +02:00 [INF] Executed endpoint 'WordCollectionApi.Controllers.WordController.GETwords (WordCollectionApi)'
+2025-04-23 18:47:58.693 +02:00 [INF] HTTP GET /api/Word/GET_Words responded 200 in 783.9456 ms
+2025-04-23 18:47:58.699 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/api/Word/GET_Words - 200 null application/json; charset=utf-8 822.1881ms

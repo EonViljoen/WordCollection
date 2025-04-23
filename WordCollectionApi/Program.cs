@@ -70,37 +70,37 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = false,
-        ValidateAudience = false,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-    };
-})
-.AddGitHub(options =>
-{
-    options.ClientId = builder.Configuration["GitHub_ClientId"];
-    options.ClientSecret = builder.Configuration["GitHub_ClientSecret"];
-    options.CallbackPath = "/signin-github";
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+//})
+//.AddJwtBearer(options =>
+//{
+//    options.TokenValidationParameters = new TokenValidationParameters
+//    {
+//        ValidateIssuer = false,
+//        ValidateAudience = false,
+//        ValidateLifetime = true,
+//        ValidateIssuerSigningKey = true,
+//        IssuerSigningKey = new SymmetricSecurityKey(
+//            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+//    };
+//})
+//.AddGitHub(options =>
+//{
+//    options.ClientId = builder.Configuration["GitHub_ClientId"];
+//    options.ClientSecret = builder.Configuration["GitHub_ClientSecret"];
+//    options.CallbackPath = "/signin-github";
 
-    options.Events.OnCreatingTicket = async context =>
-    {
-        var email = context.Identity?.FindFirst(ClaimTypes.Email)?.Value;
-        var name = context.Identity?.Name;
+//    options.Events.OnCreatingTicket = async context =>
+//    {
+//        var email = context.Identity?.FindFirst(ClaimTypes.Email)?.Value;
+//        var name = context.Identity?.Name;
 
-        var jwt = GenerateJwtToken.GenerateToken(email, name, builder);
-        context.Response.Redirect($"https://eonviljoen.github.io/WordCollection/login-success?token={jwt}");
-    };
-});
+//        var jwt = GenerateJwtToken.GenerateToken(email, name, builder);
+//        context.Response.Redirect($"https://eonviljoen.github.io/WordCollection/login-success?token={jwt}");
+//    };
+//});
 
 
 
@@ -121,18 +121,18 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowGHPages");
 
-app.UseAuthentication();
+//app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/login/github", async (HttpContext context) =>
-{
-    await context.ChallengeAsync("GitHub", new AuthenticationProperties
-    {
-        RedirectUri = "/signin-github"
-    });
-});
+//app.MapGet("/login/github", async (HttpContext context) =>
+//{
+//    await context.ChallengeAsync("GitHub", new AuthenticationProperties
+//    {
+//        RedirectUri = "/signin-github"
+//    });
+//});
 
 try
 {

@@ -39,43 +39,7 @@ export class HomeComponent {
   validIssuer = 'issuer: "https://wordcollectionapi.onrender.com"';
 
 
-  ngOnInit() {
-    const token = this.route.snapshot.queryParamMap.get('token');
-
-    if (token) {
-      localStorage.setItem('jwt', token);
-
-      try {
-        const decoded: any = jwtDecode(token);
-
-        // issuer validation
-        if (decoded.iss === this.validIssuer) {
-          this.isAuthorized = true;
-        } else {
-          console.warn('Invalid issuer:', decoded.iss);
-          this.isAuthorized = false;
-        }
-      } catch (e) {
-        console.error('Invalid token', e);
-        this.isAuthorized = false;
-      }
-
-      // Go to home
-      this.router.navigate(['/']);
-
-    } else {
-      // Check if in localstorage
-      const stored = localStorage.getItem('jwt');
-      if (stored) {
-        try {
-          const decoded: any = jwtDecode(stored);
-          this.isAuthorized = decoded.iss === this.validIssuer;
-        } catch {
-          this.isAuthorized = false;
-        }
-      }
-    }
-  }
+  ngOnInit() {}
 
   setView(view: HomeView){
     this.currentView = view
