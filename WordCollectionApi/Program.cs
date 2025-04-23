@@ -45,10 +45,10 @@ builder.Services.AddSingleton<WordService>();
 // Define CORS policy
 builder.Services.AddCors(policy =>
 {
-    policy.AddPolicy("AllowAngularWebApp",
+    policy.AddPolicy("AllowGHPages",
             policyBuilder =>
             {
-                policyBuilder.WithOrigins("http://localhost:4200")
+                policyBuilder.WithOrigins("https://EonViljoen.github.io")
                 .AllowAnyMethod()
                 .AllowAnyHeader();
             }
@@ -78,7 +78,7 @@ if (app.Environment.IsDevelopment())
 // Swagger / CORS / Middleware stuff
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAngularWebApp");
+app.UseCors("AllowGHPages");
 
 app.UseAuthorization();
 
