@@ -19,6 +19,7 @@ var configuration = builder.Configuration;
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(configuration)  // Read from appsettings.json
     .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)  // Log to a file
+    .WriteTo.Console()
     .CreateLogger();
 
 // Add logging configuration using Serilog
@@ -95,8 +96,7 @@ builder.Services.AddAuthentication(options =>
         var email = context.Identity?.FindFirst(ClaimTypes.Email)?.Value;
         var name = context.Identity?.Name;
 
-        // Issue JWT here and redirect back to frontend with token in URL
-        var jwt = GenerateJwtToken.GenerateToken(email, name, builder); // your method
+        var jwt = GenerateJwtToken.GenerateToken(email, name, builder);
         context.Response.Redirect($"https://eonviljoen.github.io/WordCollection/login-success?token={jwt}");
     };
 });
@@ -125,6 +125,17 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+try
+{
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
 
-app.Lifetime.ApplicationStopped.Register(Log.CloseAndFlush);
+//app.Lifetime.ApplicationStopped.Register(Log.CloseAndFlush);

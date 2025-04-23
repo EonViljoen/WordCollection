@@ -114,3 +114,136 @@ System.ArgumentException: The 'ClientId' option must be provided. (Parameter 'Cl
    at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
 2025-04-23 13:49:19.864 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/api/Word/GET_Words - 500 null text/plain; charset=utf-8 44.0013ms
+2025-04-23 15:56:45.107 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 15:56:45.484 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 15:56:45.486 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 15:56:45.607 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 15:56:45.608 +02:00 [INF] Hosting environment: Development
+2025-04-23 15:56:45.608 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 15:56:46.545 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 15:56:46.806 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 94.7597 ms
+2025-04-23 15:56:46.813 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 280.7338ms
+2025-04-23 15:56:46.844 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 15:56:46.852 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 7.4963ms
+2025-04-23 15:56:46.863 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 15:56:46.927 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.8103ms
+2025-04-23 15:56:47.010 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 15:56:47.035 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 23.1156 ms
+2025-04-23 15:56:47.037 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.4878ms
+2025-04-23 15:56:53.407 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/Login - null null
+2025-04-23 15:56:53.449 +02:00 [ERR] HTTP GET /Login responded 500 in 39.8929 ms
+System.ArgumentException: The 'ClientId' option must be provided. (Parameter 'ClientId')
+   at Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Validate()
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.Validate(String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationBuilder.<>c__DisplayClass4_0`2.<AddSchemeHelper>b__1(TOptions o)
+   at Microsoft.Extensions.Options.ValidateOptions`1.Validate(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.<>c.<Get>b__10_0(String name, IOptionsFactory`1 factory)
+   at Microsoft.Extensions.Options.OptionsCache`1.<>c__DisplayClass3_1`1.<GetOrAdd>b__2()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2025-04-23 15:56:53.514 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: The 'ClientId' option must be provided. (Parameter 'ClientId')
+   at Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Validate()
+   at Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.Validate(String scheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationBuilder.<>c__DisplayClass4_0`2.<AddSchemeHelper>b__1(TOptions o)
+   at Microsoft.Extensions.Options.ValidateOptions`1.Validate(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.<>c.<Get>b__10_0(String name, IOptionsFactory`1 factory)
+   at Microsoft.Extensions.Options.OptionsCache`1.<>c__DisplayClass3_1`1.<GetOrAdd>b__2()
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Microsoft.Extensions.Options.OptionsCache`1.GetOrAdd[TArg](String name, Func`3 createOptions, TArg factoryArgument)
+   at Microsoft.Extensions.Options.OptionsMonitor`1.Get(String name)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandler`1.InitializeAsync(AuthenticationScheme scheme, HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationHandlerProvider.GetHandlerAsync(HttpContext context, String authenticationScheme)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-04-23 15:56:53.527 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/Login - 500 null text/plain; charset=utf-8 120.8434ms
+2025-04-23 17:34:25.269 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 17:34:25.730 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 17:34:25.733 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 17:34:25.939 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 17:34:25.942 +02:00 [INF] Hosting environment: Development
+2025-04-23 17:34:25.944 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 17:34:26.793 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 17:34:27.184 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 130.5766 ms
+2025-04-23 17:34:27.196 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 421.3031ms
+2025-04-23 17:34:50.517 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 17:34:50.945 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 17:34:50.949 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 17:34:51.098 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 17:34:51.102 +02:00 [INF] Hosting environment: Development
+2025-04-23 17:34:51.105 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 17:34:51.516 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 17:34:51.895 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 116.1338 ms
+2025-04-23 17:34:51.919 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 412.8009ms
+2025-04-23 17:34:51.950 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 17:34:51.967 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 17:34:51.969 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 18.7504ms
+2025-04-23 17:34:52.081 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 113.8909ms
+2025-04-23 17:34:52.171 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 17:34:52.205 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 26.0136 ms
+2025-04-23 17:34:52.212 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.0743ms
+2025-04-23 17:38:11.634 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 17:38:12.040 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 17:38:12.043 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 17:38:12.191 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 17:38:12.196 +02:00 [INF] Hosting environment: Development
+2025-04-23 17:38:12.201 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 17:38:13.425 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 17:38:13.809 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 116.3527 ms
+2025-04-23 17:38:13.827 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 412.8212ms
+2025-04-23 17:38:13.913 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 17:38:13.913 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 17:38:13.974 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 60.885ms
+2025-04-23 17:38:14.083 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 170.3862ms
+2025-04-23 17:38:14.190 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 17:38:14.223 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 28.8855 ms
+2025-04-23 17:38:14.230 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.4213ms
+2025-04-23 18:11:31.722 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 18:12:08.055 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 18:13:22.481 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 18:13:22.489 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 18:13:22.628 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 18:13:22.631 +02:00 [INF] Hosting environment: Development
+2025-04-23 18:13:22.634 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 18:13:23.394 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 18:13:23.803 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 133.9352 ms
+2025-04-23 18:13:23.832 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 448.9607ms
+2025-04-23 18:13:23.856 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 18:13:23.893 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 37.7294ms
+2025-04-23 18:13:23.935 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 18:13:24.069 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 134.4037ms
+2025-04-23 18:13:24.191 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 18:13:24.242 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 38.5548 ms
+2025-04-23 18:13:24.245 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.9107ms
+2025-04-23 18:14:07.215 +02:00 [INF] User profile is available. Using 'C:\Users\eon.viljoen\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-23 18:14:07.599 +02:00 [INF] Now listening on: https://localhost:7062
+2025-04-23 18:14:07.605 +02:00 [INF] Now listening on: http://localhost:5082
+2025-04-23 18:14:07.742 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-23 18:14:07.746 +02:00 [INF] Hosting environment: Development
+2025-04-23 18:14:07.747 +02:00 [INF] Content root path: C:\Work\Personal\WordCollection\WordCollectionApi
+2025-04-23 18:14:08.826 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/index.html - null null
+2025-04-23 18:14:09.163 +02:00 [INF] HTTP GET /swagger/index.html responded 200 in 127.3173 ms
+2025-04-23 18:14:09.178 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/index.html - 200 null text/html;charset=utf-8 368.9945ms
+2025-04-23 18:14:09.203 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - null null
+2025-04-23 18:14:09.246 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 42.2071ms
+2025-04-23 18:14:09.247 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/_vs/browserLink - null null
+2025-04-23 18:14:09.345 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/_vs/browserLink - 200 null text/javascript; charset=UTF-8 97.6773ms
+2025-04-23 18:14:09.458 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - null null
+2025-04-23 18:14:09.512 +02:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 42.9590 ms
+2025-04-23 18:14:09.519 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7062/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 61.8872ms

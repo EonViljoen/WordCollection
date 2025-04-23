@@ -19,7 +19,7 @@ namespace WordCollectionApi.Common
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: null,
+                issuer: "https://wordcollectionapi.onrender.com", 
                 audience: null,
                 claims: claims,
                 expires: DateTime.Now.AddHours(1),

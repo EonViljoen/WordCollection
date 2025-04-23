@@ -36,45 +36,46 @@ export class HomeComponent {
   wordType = WordType;
 
   isAuthorized = false;
-  validIssuer = 'https://github.com/login/oauth';
+  validIssuer = 'issuer: "https://wordcollectionapi.onrender.com"';
 
 
-    ngOnInit() {
-      const token = this.route.snapshot.queryParamMap.get('token');
+  ngOnInit() {
+    const token = this.route.snapshot.queryParamMap.get('token');
 
-      if (token) {
-        localStorage.setItem('jwt', token);
+    if (token) {
+      localStorage.setItem('jwt', token);
 
-        try {
-          const decoded: any = jwtDecode(token);
+      try {
+        const decoded: any = jwtDecode(token);
 
-          // Simple issuer validation
-          if (decoded.iss === this.validIssuer) {
-            this.isAuthorized = true;
-          } else {
-            console.warn('Invalid issuer:', decoded.iss);
-            this.isAuthorized = false;
-          }
-        } catch (e) {
-          console.error('Invalid token', e);
+        // issuer validation
+        if (decoded.iss === this.validIssuer) {
+          this.isAuthorized = true;
+        } else {
+          console.warn('Invalid issuer:', decoded.iss);
           this.isAuthorized = false;
         }
+      } catch (e) {
+        console.error('Invalid token', e);
+        this.isAuthorized = false;
+      }
 
-        // Optionally navigate to dashboard
-        this.router.navigate(['/']);
-      } else {
-        // Check if already logged in from localStorage
-        const stored = localStorage.getItem('jwt');
-        if (stored) {
-          try {
-            const decoded: any = jwtDecode(stored);
-            this.isAuthorized = decoded.iss === this.validIssuer;
-          } catch {
-            this.isAuthorized = false;
-          }
+      // Go to home
+      this.router.navigate(['/']);
+
+    } else {
+      // Check if in localstorage
+      const stored = localStorage.getItem('jwt');
+      if (stored) {
+        try {
+          const decoded: any = jwtDecode(stored);
+          this.isAuthorized = decoded.iss === this.validIssuer;
+        } catch {
+          this.isAuthorized = false;
         }
       }
     }
+  }
 
   setView(view: HomeView){
     this.currentView = view
