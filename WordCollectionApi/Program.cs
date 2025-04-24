@@ -27,15 +27,17 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 // Configure DB settings from appsettings.json
-builder.Services.Configure<DbSettings>(
-    builder.Configuration.GetSection("StoreDatabase")
-    );
+builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("StoreDatabase"));
 
 // Setup Mongo Client to expose DB to API
 builder.Services.AddSingleton<IMongoClient>(x =>
 {
     var dbSettings = x.GetRequiredService<IOptions<DbSettings>>().Value;
-    return new MongoClient(dbSettings.ConnectionString);
+    var mongoConnectionString = Environment.GetEnvironmentVariable("MONGO_URI")
+        ?? configuration["StoreDatabase:ConnectionString"];
+
+
+    return new MongoClient(mongoConnectionString);
 });
 
 // Expose DB to Mongo Client, allowing access
@@ -45,6 +47,7 @@ builder.Services.AddSingleton<IMongoDatabase>(x =>
     var client = x.GetRequiredService<IMongoClient>();
     return client.GetDatabase(dbSettings.DatabaseName);
 });
+
 
 // Register WordService
 builder.Services.AddSingleton<WordService>();
