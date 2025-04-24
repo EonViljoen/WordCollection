@@ -1,29 +1,42 @@
 # WordCollection
 Fullstack project to capture words, group by word type, to compile a collection of words.
 
+# Prerequisites for local environment
+- Angular 18 / 19
+- .Net 8 (ASP.NET CORE)
+- MongoDB
+
+Unchecked content ETA: TBA
 
 # Full-Stack System Checklist (Angular + ASP.NET Core + MongoDB) provided by ChatGPT on what is required for a Full-Stack System
 
 ## 1. Frontend (Client-Side)
-- [x] Built with a modern framework (Angular)
-- [ ] Routing system in place (Angular Router)
+- [x] Built with a modern framework
+- [ ] Routing system in place
+- [x] Components for listing, creating, editing, deleting words
 - [x] Consumes backend API via HttpClient
-- [x] Form inputs with validation (template or reactive forms)
-- [ ] Responsive design (desktop + mobile)
+- [x] All endpoints pulled from config
+- [x] Form inputs with validation
+- [x] Material Design or custom styling applied
+- [x] Responsive design
+- [x] Custom error handling and feedback
 - [x] Uses environment variables (e.g., `environment.ts`) for config
 - [x] Global error handling for failed HTTP requests
 
 ---
 
 ## 2. Backend (Server-Side)
-- [x] Built with a modern backend framework (ASP.NET Core)
-- [x] RESTful endpoints with correct HTTP verbs (GET, POST, PUT, DELETE)
+- [x] Built with a modern backend framework
+- [x] RESTful endpoints with correct HTTP verbs
 - [x] Controllers and service layers are properly separated
+- [x] DTO models
+- [x] Services for database interaction
 - [ ] Input validation and request body checks
 - [ ] Authentication (e.g., JWT)
 - [ ] Authorization (e.g., role-based access)
+- [x] CORS policy enabled for frontend domain
 - [x] Exception handling middleware
-- [x] Environment configuration (e.g., `appsettings.json`, `.env`)
+- [x] Environment configuration
 
 ---
 
@@ -31,13 +44,17 @@ Fullstack project to capture words, group by word type, to compile a collection 
 - [x] Connected using secure, configurable connection strings
 - [x] Schema or document structure well defined
 - [x] Supports full CRUD operations via backend
+- [ ] Data migration or seed setup
 
 ---
 
 ## 4. API Contract & Models
-- [ ] DTOs or interfaces defined for all request/response shapes
-- [ ] Swagger/OpenAPI documentation auto-generated
-- [ ] Consistent naming and versioning of endpoints
+- [x] DTOs or interfaces defined for all request/response shapes
+- [x] RESTful endpoints follow conventions
+- [x] Uses proper status codes
+- [x] Swagger/OpenAPI documentation auto-generated
+- [x] Consistent naming and versioning of endpoints
+- [x] Angular calls endpoints using service layer, no hardcoded URLs
 - [ ] Standard error response structure
 
 ---
@@ -51,42 +68,55 @@ Fullstack project to capture words, group by word type, to compile a collection 
 
 ## 6. DevOps / CI/CD
 - [x] Git repository with clean commit history
-- [x] CI/CD pipeline set up (GitHub Actions / GitLab CI / Azure DevOps)
+- [x] GitHub Actions workflow:
+  - [x] Build Angular app
+  - [x] Build .NET Core backend
+  - [ ] Run tests
+  - [x] Dockerize both apps
+  - [x] Push to DockerHub/GitHub Container Registry
+- [x] Dockerfile and docker-compose for production
+- [ ] Linting and formatting integrated in pipeline
+- [ ] Tests executed during CI
+- [ ] Dockerfile and docker-compose for local
 - [x] Dockerfile and docker-compose for production
 
 ---
 
 ## 7. Hosting & Deployment
-- [x] Backend hosted on a cloud platform (Render)
-- [x] Frontend deployed to CDN (Github Pages)
+- [x] Backend hosted on a cloud platform
+- [x] Frontend deployed to CDN
+- [x] MongoDB hosted on Atlas
 - [ ] HTTPS/SSL enabled
+- [ ] Custom domain set
 - [x] Deployment is automated
 
 ---
 
 ## 8. Monitoring & Logging
-- [x] Logging is implemented (Serilog)
+- [x] Backend logs requests/responses
+- [ ] Frontend logs errors
+- [ ] Centralized or external logging
+- [ ] Error tracking enabled
 - [ ] Health check endpoint available
+- [ ] Performance monitoring
 
 ---
 
 ## 9. Testing & Quality
-- [ ] Unit tests for backend services
-- [ ] Unit/component tests for frontend
-- [ ] E2E tests with tools like Cypress or Playwright (optional)
+- [ ] Unit tests for backend services in .NET using xUnit or NUnit
+- [ ] Unit/component tests for frontend with Karma/Jasmine
+- [ ] E2E tests with tools like Cypress or Playwright
 - [ ] Code coverage reported (optional)
 - [ ] ESLint/TSLint, Prettier configured
 
 ---
 
 ## 10. Documentation
-- [ ] `README.md` with project overview, setup instructions, and architecture
+- [x] `README.md` with project overview, setup instructions, and architecture
 - [ ] API documentation available (e.g., Swagger UI)
 - [ ] Architecture diagram (optional)
 - [ ] Environment variable reference
 - [ ] Developer guide or onboarding doc (optional)
-
----
 
 ## 11. Bonus (Enterprise / Production-Level)
 - [ ] Mobile-friendly (PWA or mobile-first design)
