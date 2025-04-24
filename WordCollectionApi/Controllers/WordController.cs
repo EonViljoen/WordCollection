@@ -7,7 +7,7 @@ using WordCollectionApi.Services;
 
 namespace WordCollectionApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("WordCollectionApi/[controller]")]
     [ApiController]
     public class WordController : ControllerBase
     {
