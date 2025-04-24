@@ -55,7 +55,7 @@ builder.Services.AddCors(policy =>
     policy.AddPolicy("AllowGHPages",
             policyBuilder =>
             {
-                policyBuilder.WithOrigins("https://EonViljoen.github.io")
+                policyBuilder.WithOrigins("https://eonviljoen.github.io")
                 .AllowAnyMethod()
                 .AllowAnyHeader();
             }
