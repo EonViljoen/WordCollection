@@ -78,16 +78,17 @@ export class SubmissionComponent {
   }
 
   deleteWord() {
-    const word = this.selectedWord();
+    const word = this.selectedWord();  // Get selected word
   
     if (!word) {
       this.showSnackBar('No word selected to delete');
-      return;
+      return;  // Exit if no word is selected
     }
   
+    // Proceed with the delete operation
     this.wordService.DELETE_Word(word.id).subscribe({
       next: (res) => {
-        this.outputedWord.emit(word);
+        this.outputedWord.emit(word);  // Emit word that was deleted
         this.submittedItem = '';
         this.showSnackBar('Successfully deleted: ' + word.word);
       },
@@ -96,6 +97,7 @@ export class SubmissionComponent {
       }
     });
   }
+  
 
   getWord() {
     let wordId: any = this.submittedItem;

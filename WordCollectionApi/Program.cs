@@ -60,6 +60,13 @@ builder.Services.AddCors(policy =>
                 .AllowAnyHeader();
             }
         );
+    policy.AddPolicy("AllowLocalhost",
+        policyBuilder =>
+        {
+            policyBuilder.WithOrigins("http://localhost:4200")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
 });
 
 // MVC / Swashbuckle stuff
@@ -120,6 +127,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowGHPages");
+//app.UseCors("AllowLocalhost");
 
 //app.UseAuthentication();
 app.UseAuthorization();

@@ -31,32 +31,36 @@ export class DeleteWordComponent {
   selectedWord: IWord | undefined;
   
     ngOnInit(): void {
-      // this.wordService.GET_Words().subscribe({
-      //   next: (res: IWord[]) => {
-      //     this.existingWords = res;
-      //   },
-      //   error: (err: any) => {
-      //     console.error('Failed to fetch words', err);
-      //   }
-      // });
+      this.wordService.GET_Words().subscribe({
+        next: (res: IWord[]) => {
+          this.existingWords = res;
+        },
+        error: (err: any) => {
+          console.error('Failed to fetch words', err);
+        }
+      });
   
-      // this.filteredWords = this.control.valueChanges.pipe(
-      //   startWith(''),
-      //   map(input => this.filterWords((input ?? '').toString()))
-      // );
+      this.filteredWords = this.control.valueChanges.pipe(
+        startWith(''),
+        map(input => this.filterWords((input ?? '').toString()))
+      );
     }
 
-    handleDeletedWord(deleted: IWord) {
-      this.existingWords = this.existingWords.filter(w => w.id !== deleted.id);
-      this.control.setValue('');
-      this.selectedWord = undefined;
+    handleDeletedWord(deletedWord: IWord) {
+      this.existingWords = this.existingWords.filter(w => w.id !== deletedWord.id);
     }
     
     
     onOptionSelected(event: MatAutocompleteSelectedEvent) {
       const selectedText = event.option.value;
       this.selectedWord = this.existingWords.find(w => w.word === selectedText);
+      if (this.selectedWord) {
+        console.log('Selected word:', this.selectedWord); // Debugging line
+      } else {
+        console.log('No word found matching the selection');
+      }
     }
+    
   
     filterWords(rawInput: string): IWord[] {
       const norm = this.normalize(rawInput);

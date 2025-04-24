@@ -4,7 +4,8 @@
       matInput class="input-box"
       type="text"
       [value]="selectedWord()?.word"
-      placeholder="Selected Word to Delete">
+      placeholder="Selected Word to Delete"
+      hidden="true">
 
     <input 
     *ngIf="!isDelete()"
