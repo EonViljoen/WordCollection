@@ -1,4 +1,4 @@
 export const environment = {
-    apiBaseUrl: 'https://localhost:7062/api',
+    apiBaseUrl: 'https://wordcollectionapi.onrender.com/WordCollectionApi',
     wordEnpoint: '/Word'
 };
