@@ -13,7 +13,7 @@ import { WordCollectionService } from '../../common/services/wordCollection.serv
   selector: 'app-delete-word',
   standalone: true,
   imports: [SubmissionComponent, FormsModule, MatAutocompleteModule, ReactiveFormsModule,
-    AsyncPipe, CommonModule],
+    CommonModule],
   templateUrl: './delete-word.component.html',
   styleUrl: './delete-word.component.scss'
 })
