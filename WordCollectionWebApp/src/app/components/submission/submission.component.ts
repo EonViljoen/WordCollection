@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpMethod } from '../../common/enum/httpMethods';
 import { IWord } from '../../common/interfaces/word';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -15,7 +16,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-submission',
   standalone: true,
   imports: [ MatIconModule, MatButtonModule, MatInputModule,
-    FormsModule],
+    FormsModule, CommonModule],
   templateUrl: './submission.component.html',
   styleUrl: './submission.component.scss'
 })
@@ -28,8 +29,10 @@ export class SubmissionComponent {
 
   wordType = input<WordType>();
   httpAction = input<HttpMethod>();
+  httpMethod = HttpMethod;
 
   selectedWord = input<IWord | undefined>();
+  isDelete = input<boolean>();
 
   @Output() outputedWord = new EventEmitter<IWord>();
 
@@ -75,23 +78,22 @@ export class SubmissionComponent {
   }
 
   deleteWord() {
-    let capturedItem: string = this.submittedItem;
-    let wordId: number = 0;
-
-    try{
-      wordId = parseInt(capturedItem);
+    const word = this.selectedWord();
+  
+    if (!word) {
+      this.showSnackBar('No word selected to delete');
+      return;
     }
-    catch(error){
-      if (capturedItem === undefined){
-        return;
+  
+    this.wordService.DELETE_Word(word.id).subscribe({
+      next: (res) => {
+        this.outputedWord.emit(word);
+        this.submittedItem = '';
+        this.showSnackBar('Successfully deleted: ' + word.word);
+      },
+      error: (err: any) => {
+        this.showSnackBar('Delete failed: ' + err);
       }
-      else {
-        this.showSnackBar('Error deleting word: ' + error)
-      }
-
-    }
-    this.wordService.DELETE_Word(wordId).subscribe(res => {
-      this.showSnackBar('Word deleted: ' + res)
     });
   }
 

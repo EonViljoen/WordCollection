@@ -2,6 +2,11 @@
     Enter a Word to Remove from you're Vocabulary: 
 </h4>
 <div class="container">
-    <app-submission [httpAction]="httpMethod.DELETE"></app-submission>
+    <app-submission 
+        [httpAction]="httpMethod.DELETE" 
+        [selectedWord]="selectedWord"
+        (outputedWord)="handleDeletedWord($event)" 
+        [isDelete]="true"
+        class="border"></app-submission>
 </div>
 

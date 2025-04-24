@@ -1,20 +1,20 @@
 <mat-drawer-container autosize class="container">
     <mat-drawer #drawer class="sidenav">
         <!-- <ng-container *ngIf="isAuthorized"> -->
-            <button (click)="setView(homeView.GetWordPage); drawer.toggle()"  mat-button class="nav-button">
+            <!-- <button (click)="setView(homeView.GetWordPage); drawer.toggle()"  mat-button class="nav-button">
                 Get Specifc Word
-            </button>
+            </button> -->
             <button (click)="setView(homeView.GetWordsPage); drawer.toggle()" mat-button class="nav-button">
-                View Created Word Collection
+                View All Documented Words
             </button>
             <button (click)="setView(homeView.CreateWordPage); drawer.toggle()" mat-button class="nav-button">
-                Enter a New Word
+                Document a Word
             </button>
             <button (click)="setView(homeView.UpdateWordPage); drawer.toggle()" mat-button class="nav-button">
-                Update an Existing Word
+                Update an Already Documented Word
             </button>
             <button (click)="setView(homeView.DeleteWordPage); drawer.toggle()" mat-button class="nav-button">
-                Delete an Existing Word
+                Remove a Word From Your Vocabulary
             </button>
         <!-- </ng-container> -->
     </mat-drawer>
@@ -24,17 +24,20 @@
           <button mat-icon-button (click)="drawer.toggle()">
             <mat-icon>menu</mat-icon>
           </button>
-          <span>Word Collection</span>
+          <span>Menu</span>
         </mat-toolbar>
         <div class="main-page">
-            <div style="width: 90%;">
+            <div class="shrinker ">
                 <div *ngIf="currentView === homeView.LandingPage">
                     <h1 class="header">
-                    Landing page
+                    Document Your Vocabulary
                     </h1>
+                    <h5 class="header">
+                        Add, Delete, Update and View words you've committed to you're vocabulary.
+                    </h5>
                     <!-- <a href="https://wordcollectionapi.onrender.com/signin-github">Login with GitHub</a> -->
                 </div>
-                <app-get-word *ngIf="currentView === homeView.GetWordPage"></app-get-word>
+                <!-- <app-get-word *ngIf="currentView === homeView.GetWordPage"></app-get-word> -->
                 <app-get-words *ngIf="currentView === homeView.GetWordsPage" [visible]="currentView === homeView.GetWordsPage"></app-get-words>
                 <app-create-word *ngIf="currentView === homeView.CreateWordPage"></app-create-word>
                 <app-update-word *ngIf="currentView === homeView.UpdateWordPage"></app-update-word>
