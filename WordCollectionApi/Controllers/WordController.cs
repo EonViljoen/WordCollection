@@ -4,6 +4,7 @@ using WordCollectionApi.Models;
 using WordCollectionApi.Common;
 using MongoDB.Driver;
 using WordCollectionApi.Services;
+using System.Text.RegularExpressions;
 
 namespace WordCollectionApi.Controllers
 {
@@ -37,6 +38,12 @@ namespace WordCollectionApi.Controllers
         [HttpPost("POST_Word")]
         public async Task<ActionResult<Word>> POSTword(Word word)
         {
+            if (string.IsNullOrWhiteSpace(word.WordValue))
+                return BadRequest("Word cannot be empty.");
+
+            if (!Regex.IsMatch(word.WordValue, @"^[\p{L}'-]+$", RegexOptions.Compiled | RegexOptions.CultureInvariant))
+                return BadRequest("Word contains invalid characters.");
+
             await _wordService.CreateWordAsync(word);
 
             return Ok(word);

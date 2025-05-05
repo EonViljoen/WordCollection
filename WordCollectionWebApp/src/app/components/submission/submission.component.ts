@@ -127,20 +127,29 @@ export class SubmissionComponent {
     }
 
     // REGEX: Only letters, at least 1 character
-    const validWordRegex = /^[A-Za-z]+$/;
+    const validWordRegex = /^[\p{L}'-]+$/u;
 
     if (!validWordRegex.test(this.submittedItem)) {
       this.showSnackBar('Word must contain only letters');
       return;
     }
-    
+
     this.wordService.POST_Word({
       id: 0,
       type: wordType,
       word: this.submittedItem
-    }).subscribe(word => {
+    }).subscribe({
+      next: word => {
       this.showSnackBar(this.submittedItem + " has been created")
-    });
+    },
+    error: (err) => {
+      if (err.status === 400) {
+        this.showSnackBar(`Error: ${err.error}`);
+      } else {
+        this.showSnackBar('Unexpected error occurred');
+      }
+    }
+  });
   }
 
   updateWord(){

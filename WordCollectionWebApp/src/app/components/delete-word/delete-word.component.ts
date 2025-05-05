@@ -8,6 +8,7 @@ import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/ma
 import { map, Observable, startWith } from 'rxjs';
 import { IWord } from '../../common/interfaces/word';
 import { WordCollectionService } from '../../common/services/wordCollection.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-delete-word',
@@ -19,6 +20,8 @@ import { WordCollectionService } from '../../common/services/wordCollection.serv
 })
 export class DeleteWordComponent {
   private wordService = inject(WordCollectionService);
+  private snackBar = inject(MatSnackBar)
+
 
   currentView: HomeView =  HomeView.DeleteWordPage;
   homeView = HomeView;
@@ -50,14 +53,20 @@ export class DeleteWordComponent {
       this.existingWords = this.existingWords.filter(w => w.id !== deletedWord.id);
     }
     
+    showSnackBar(message: string){
+      this.snackBar.open(message, 'Close', {
+        duration: 3000,
+        panelClass: ['snackbar-success']
+      });
+    }
     
     onOptionSelected(event: MatAutocompleteSelectedEvent) {
       const selectedText = event.option.value;
       this.selectedWord = this.existingWords.find(w => w.word === selectedText);
       if (this.selectedWord) {
-        console.log('Selected word:', this.selectedWord); // Debugging line
+        this.showSnackBar('Selected word: '+ this.selectedWord);
       } else {
-        console.log('No word found matching the selection');
+        this.showSnackBar('No word found matching the selection');
       }
     }
     
