@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-installer',
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   standalone: true,
   templateUrl: './installer.component.html',
   styleUrl: './installer.component.scss'
