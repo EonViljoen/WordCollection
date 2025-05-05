@@ -38,7 +38,7 @@
                     <button mat-fab extended (click)="loginWithGitHub()" *ngIf="!isAuthenticated" class="login">
                         Login with GitHub
                     </button>
-                    <!-- <a href="https://wordcollectionapi.onrender.com/signin-github">Login with GitHub</a> -->
+                    <app-installer class="login"></app-installer>
                 </div>
                 <!-- <app-get-word *ngIf="currentView === homeView.GetWordPage"></app-get-word> -->
                 <app-get-words *ngIf="currentView === homeView.GetWordsPage" [visible]="currentView === homeView.GetWordsPage"></app-get-words>

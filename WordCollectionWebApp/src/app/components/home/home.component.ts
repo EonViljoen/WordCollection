@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import  {jwtDecode}  from 'jwt-decode';
 import {MatTabsModule} from '@angular/material/tabs';
 import { WordType } from '../../common/enum/wordType';
 import {MatButtonModule} from '@angular/material/button';
@@ -15,14 +14,15 @@ import { GetWordsComponent } from "../get-words/get-words.component";
 import { DeleteWordComponent } from "../delete-word/delete-word.component";
 import { UpdateWordComponent } from "../update-word/update-word.component";
 import { environment } from '../../../environments/environment.development';
+import { InstallerComponent } from "../installer/installer.component";
 
 
 @Component({
   selector: 'app-home',
-  imports: [ MatTabsModule, MatButtonModule, 
+  imports: [MatTabsModule, MatButtonModule,
     MatSidenavModule, CreateWordComponent, CommonModule, MatIcon,
     MatToolbar, GetWordComponent, GetWordsComponent, DeleteWordComponent,
-    UpdateWordComponent],
+    UpdateWordComponent, InstallerComponent],
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
