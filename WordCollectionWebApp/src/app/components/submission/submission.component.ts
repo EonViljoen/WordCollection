@@ -126,6 +126,14 @@ export class SubmissionComponent {
       return;
     }
 
+    // REGEX: Only letters, at least 1 character
+    const validWordRegex = /^[A-Za-z]+$/;
+
+    if (!validWordRegex.test(this.submittedItem)) {
+      this.showSnackBar('Word must contain only letters');
+      return;
+    }
+    
     this.wordService.POST_Word({
       id: 0,
       type: wordType,
