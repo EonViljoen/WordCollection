@@ -14,6 +14,7 @@ import { GetWordComponent } from "../get-word/get-word.component";
 import { GetWordsComponent } from "../get-words/get-words.component";
 import { DeleteWordComponent } from "../delete-word/delete-word.component";
 import { UpdateWordComponent } from "../update-word/update-word.component";
+import { environment } from '../../../environments/environment.development';
 
 
 @Component({
@@ -35,13 +36,47 @@ export class HomeComponent {
   
   wordType = WordType;
 
-  isAuthorized = false;
-  validIssuer = 'issuer: "https://wordcollectionapi.onrender.com"';
+  isAuthenticated = false;
 
 
-  ngOnInit() {}
+  ngOnInit() {
+    const authTimestamp = localStorage.getItem('authTimestamp');
+    const oneDay = 24 * 60 * 60 * 1000;
+
+    if (authTimestamp) {
+      const timeElapsed = Date.now() - parseInt(authTimestamp, 10);
+      if (timeElapsed < oneDay) {
+        this.isAuthenticated = true;
+      } else {
+        this.redirectToGitHub();
+      }
+    }
+
+    this.route.queryParams.subscribe(params => {
+      if (params['auth'] === 'success') {
+        this.isAuthenticated = true;
+        localStorage.setItem('auth', 'true');
+        localStorage.setItem('authTimestamp', Date.now().toString());
+
+        this.router.navigate([], {
+          queryParams: {},
+          replaceUrl: true,
+        });
+      }
+    });
+  }
 
   setView(view: HomeView){
     this.currentView = view
+  }
+
+  loginWithGitHub(){
+    window.location.href = environment.frontEndLoginUri;
+  }
+
+  redirectToGitHub() {
+    localStorage.removeItem('auth');
+    localStorage.removeItem('authTimestamp');
+    window.location.href = environment.frontEndLoginUri
   }
 }
