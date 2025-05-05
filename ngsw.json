@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1746453007276,
+  "timestamp": 1746455634378,
   "index": "/WordCollection/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/WordCollection/favicon.ico",
         "/WordCollection/index.html",
-        "/WordCollection/main-EC7DUIDD.js",
+        "/WordCollection/main-GL32GESO.js",
         "/WordCollection/manifest.webmanifest",
         "/WordCollection/polyfills-FFHMD2TL.js",
         "/WordCollection/styles-36AW6TKX.css"
@@ -56,8 +56,8 @@
     "/WordCollection/favicon.svg": "b9d5d568742409275901bdc7a0178ec0517d9d11",
     "/WordCollection/icons/icon-192x192.png": "d9b776a59228bb903633b5168d257bdca103dea5",
     "/WordCollection/icons/icon-512x512.png": "249046172821fb8b83a376152e09c9859d19eebb",
-    "/WordCollection/index.html": "756b479d2020753eec283c40bf02bb4acc448717",
-    "/WordCollection/main-EC7DUIDD.js": "f7995a3942fba3a83fab253f75efa03e2721680d",
+    "/WordCollection/index.html": "8c40a02ef95160896d3b1a3d59e0ced23b7e7a38",
+    "/WordCollection/main-GL32GESO.js": "700925655ab3bdabbe693c563a2bf3d25e7c3738",
     "/WordCollection/manifest.webmanifest": "507338bacdc86258cc98a4b981d98e2ebadec3b4",
     "/WordCollection/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
     "/WordCollection/styles-36AW6TKX.css": "173fa74a40cd51f896da8df76e2a21ac7900097e"
