@@ -71,12 +71,12 @@ export class HomeComponent {
   }
 
   loginWithGitHub(){
-    window.location.href = environment.frontEndLoginUri;
+    window.location.href = environment.backEndLoginUri;
   }
 
   redirectToGitHub() {
     localStorage.removeItem('auth');
     localStorage.removeItem('authTimestamp');
-    window.location.href = environment.frontEndLoginUri
+    window.location.href = environment.backEndLoginUri
   }
 }
