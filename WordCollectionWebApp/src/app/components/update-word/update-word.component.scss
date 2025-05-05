@@ -1,16 +1,16 @@
 .header {
-    margin: 5% 0 5% 0;
+    margin: 5% 0 5% -5.5%;
     text-align: center;
 }
 
 .container {
-    margin: 0 13% 0 9%;
+    margin: 0 13% 0 5%;
     width: 70%;
 }
 
 .border {
-    border: solid 1px lightblue;
-    border-radius: 10px;
+    display: flex;
+    margin-left: 30%;
 }
   
 .auto-complete-input {
@@ -23,3 +23,31 @@
     line-height: 60px;
     font-size: 30px;
 }
+
+@media only screen and (max-width: 450px) {
+    .header {
+        margin: 5% 0 5% 5%;
+        text-align: center;
+    }
+
+    .container {
+        margin: 0 1% 0 2%;
+        width: 85%;
+    }
+
+    .border {
+        display: flex;
+        margin-left: 0%;
+    }
+
+    .auto-complete-input {
+        margin: 5% 10% 5% 10%;
+        width: 90%;
+        text-align: center;
+        border: solid 1px lightblue;
+        border-radius: 3px;
+        box-shadow: 5px 5px 5px lightgray;
+        line-height: 60px;
+        font-size: 20px;
+    }
+  }

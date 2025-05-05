@@ -2,22 +2,19 @@
     Enter a Word to Remove from your Vocabulary: 
   </h4>
   <div class="container">
-    <!-- Autocomplete Input -->
     <input 
       matInput 
       [formControl]="control" 
-      placeholder="Search for a word to delete"
+      placeholder="Search for a Word to Delete"
       [matAutocomplete]="auto" 
       class="auto-complete-input">
     
-    <!-- Autocomplete Dropdown -->
     <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption (optionSelected)="onOptionSelected($event)">
       <mat-option *ngFor="let w of filteredWords | async" [value]="w.word">
         {{ w.word }}
       </mat-option>
     </mat-autocomplete>
   
-    <!-- Submission Component for Deletion -->
     <app-submission 
       [httpAction]="httpMethod.DELETE" 
       [selectedWord]="selectedWord"

@@ -115,7 +115,6 @@ export class SubmissionComponent {
       }
     }
     this.wordService.GET_Word(wordId).subscribe(word => {
-      console.log(word);
     })
   }
 
@@ -131,6 +130,8 @@ export class SubmissionComponent {
       id: 0,
       type: wordType,
       word: this.submittedItem
+    }).subscribe(word => {
+      this.showSnackBar(this.submittedItem + " has been created")
     });
   }
 

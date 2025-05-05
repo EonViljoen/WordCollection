@@ -5,7 +5,7 @@
 }
 
 .tab-group {
-    margin: 0 13% 0 13%;
+    margin: 0 5% 0 5%;
     border: solid 1px lightblue;
     border-radius: 10px;
 }
@@ -20,6 +20,18 @@
     height: 20%;
   }
 
-.adjuster {
-    // wi
-}
+@media only screen and (max-width: 450px) {
+    .tab-group {
+        margin: 0 5% 0 5%;
+        border: solid 1px lightblue;
+        border-radius: 10px;
+    }
+
+    .tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20%;
+        height: 20%;
+    }
+  }

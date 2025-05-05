@@ -1,7 +1,7 @@
 .submission {
     display: flex;
     flex-direction: row;
-    margin-left: 35%;
+    margin-left: 20%;
 }
 
 .input-box {
@@ -11,18 +11,41 @@
     line-height: 65px;
     font-size: 25px;
     text-align: center;
-    margin-left: 0%;
-    width: 75%;
+    margin-right: 2%;
 }
 
 .submit-button {
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 2%;
     display: flex;
     justify-content: center;
-    width: 25%;
+    width: 50%;
 }
 
-// .button-content {
-//     padding: 0 50% 0 50%;
-// }
+
+@media only screen and (max-width: 450px) {
+    .submission {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10%;
+    }
+    
+    .input-box {
+        border: solid 1px lightblue;
+        border-radius: 3px;
+        box-shadow: 5px 5px 5px lightgray;
+        line-height: 65px;
+        font-size: 25px;
+        text-align: center;
+        margin-left: 0%;
+        width: 100%;
+    }
+    
+    .submit-button {
+        margin-left: 28%;
+        margin-top: 10%;
+        display: flex;
+        justify-content: center;
+        width: 50%;
+    }
+  }

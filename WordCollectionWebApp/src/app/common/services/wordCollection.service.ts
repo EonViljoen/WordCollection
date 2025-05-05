@@ -31,16 +31,11 @@ export class WordCollectionService{
     }
 
     // Create New Word
-    POST_Word(word: IWord){
-        this.apiService.httpSubmit({
+    POST_Word(word: IWord) : Observable<any>{
+        return this.apiService.httpSubmit<any>({
             apiAction: ApiEndpoints.Word.POST_Word,
             method: HttpMethod.POST,
             body: word
-        }).subscribe( res => {
-            console.log(res);
-        },
-        (error) => {
-            console.log('error : ' + error);
         });
     }
 

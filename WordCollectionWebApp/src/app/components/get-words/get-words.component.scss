@@ -12,3 +12,11 @@
 .border {
   border: solid 1px lightblue;
 }
+
+@media only screen and (max-width: 450px) {
+  .shrinker {
+    padding-left: 5%;
+    padding-right: 5%;
+    
+  }
+}

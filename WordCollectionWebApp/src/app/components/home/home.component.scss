@@ -38,3 +38,24 @@
 .shrinker {
     width: 90%;
 }
+
+.login {
+    margin-left: 45%;
+}
+
+@media only screen and (max-width: 450px) {
+    .main-page {
+        display: flex;
+        height: 80%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .shrinker {
+        width: 99%;
+    }
+
+    .login {
+        margin-left: 30%;
+    }
+  }
