@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1746455634378,
+  "timestamp": 1746456560055,
   "index": "/WordCollection/index.html",
   "assetGroups": [
     {
@@ -35,22 +35,7 @@
       "patterns": []
     }
   ],
-  "dataGroups": [
-    {
-      "name": "words-api",
-      "patterns": [
-        "https:\\/\\/wordcollectionapi\\.onrender\\.com\\/WordCollectionApi\\/Word\\/GET_Words"
-      ],
-      "strategy": "performance",
-      "maxSize": 100,
-      "maxAge": 86400000,
-      "timeoutMs": 10000,
-      "cacheQueryOptions": {
-        "ignoreVary": true
-      },
-      "version": 1
-    }
-  ],
+  "dataGroups": [],
   "hashTable": {
     "/WordCollection/favicon.ico": "c439651c2b6139694e281510c533d0e1075ae935",
     "/WordCollection/favicon.svg": "b9d5d568742409275901bdc7a0178ec0517d9d11",
