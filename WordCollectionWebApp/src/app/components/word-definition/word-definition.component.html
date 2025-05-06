@@ -1,0 +1,16 @@
+<h1 mat-dialog-title class="header">Definition of "{{ data.word }}"</h1>
+<i class="header">{{ data.phonetic }}</i>
+<div mat-dialog-content  class="section">
+  <ng-container *ngIf="data.definition; else noDef">
+    <ng-container *ngFor="let meaning of data.definition; let i = index">
+      <p><strong>{{ data.types[i] !== '' ? data.types[i] : 'N/A' }} | </strong> {{ meaning }}</p>
+      <hr *ngIf="i < data.definition.length - 1" />
+    </ng-container>
+  </ng-container>
+  <ng-template #noDef>
+    <p>No definition found.</p>
+  </ng-template>
+</div>
+<div mat-dialog-actions [align]="'center'">
+  <button mat-stroked-button mat-dialog-close class="button">Close</button>
+</div>

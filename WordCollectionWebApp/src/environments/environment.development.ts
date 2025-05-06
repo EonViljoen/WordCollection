@@ -3,4 +3,5 @@ export const environment = {
     wordEnpoint: '/WordCollectionApi/Word',
     clientId: 'Ov23liMkbTCok4VA0VTA',
     backEndLoginUri: 'https://wordcollectionapi.onrender.com/WordCollectionApi/auth/github/login'
+    
 };

@@ -27,6 +27,11 @@ namespace WordCollectionApi.Services
         public async Task<Word> GetWordAsync(int id) =>
             await _wordCollection.Find( x => x.WordId == id).FirstOrDefaultAsync();
 
+        public async Task<Word> GetWordByValueAsync(string wordValue)
+        {
+            return await _wordCollection.Find(x => x.WordValue.ToLower() == wordValue).FirstOrDefaultAsync();
+        }
+
         public async Task CreateWordAsync(Word newWord)
         {
             newWord.WordId = await GetNextSeqNo("WordId");

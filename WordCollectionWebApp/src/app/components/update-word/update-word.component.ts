@@ -48,6 +48,8 @@ export class UpdateWordComponent {
       startWith(''),
       map(input => this.filterWords((input ?? '').toString()))
     );
+
+    this.selectedWord = undefined;
   }
 
   handleUpdatedWord(updated: IWord) {

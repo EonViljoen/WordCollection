@@ -44,6 +44,11 @@ namespace WordCollectionApi.Controllers
             if (!Regex.IsMatch(word.WordValue, @"^[\p{L}'-]+$", RegexOptions.Compiled | RegexOptions.CultureInvariant))
                 return BadRequest("Word contains invalid characters.");
 
+            var existingWord = await _wordService.GetWordByValueAsync(word.WordValue.Trim().ToLower());
+
+            if (existingWord != null)
+                return BadRequest("Word already exists.");
+
             await _wordService.CreateWordAsync(word);
 
             return Ok(word);

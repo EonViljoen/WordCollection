@@ -1,19 +1,34 @@
 .table {
-    width: 100%;
-    
-  }
+  position: absolute;
+  overflow: auto;
+  background-color: unset;
+  margin-top: -13%;
+  margin-bottom: 5%;
+}
 
 .shrinker {
-  padding-left: 20%;
-  padding-right: 20%;
-  
+  padding-left: 10%;
+  padding-right: 22%;
+  width: 100%
 }
 
 .border {
   border: solid 1px lightblue;
 }
 
+.icon-style {
+  padding-left: 10%;
+  padding-top: 10%;
+  opacity: 40%;
+}
+
 @media only screen and (max-width: 450px) {
+  .table {
+    overflow: auto;
+    background-color: unset;
+    margin-top: -65%;
+  }
+  
   .shrinker {
     padding-left: 5%;
     padding-right: 5%;

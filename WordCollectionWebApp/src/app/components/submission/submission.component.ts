@@ -1,4 +1,4 @@
-import { Component, inject, input, EventEmitter, Output } from '@angular/core';
+import { Component, inject, input, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
 import { WordCollectionService } from '../../common/services/wordCollection.service';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -9,6 +9,8 @@ import { HttpMethod } from '../../common/enum/httpMethods';
 import { IWord } from '../../common/interfaces/word';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
+import { SpecialWordComponent } from '../special-word/special-word.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -23,7 +25,8 @@ import { CommonModule } from '@angular/common';
 export class SubmissionComponent {
  
   private wordService = inject(WordCollectionService);
-  private snackBar = inject(MatSnackBar)
+  private snackBar = inject(MatSnackBar);
+  private dialog = inject(MatDialog);
   
   submittedItem: string = '';
 
@@ -31,10 +34,12 @@ export class SubmissionComponent {
   httpAction = input<HttpMethod>();
   httpMethod = HttpMethod;
 
-  selectedWord = input<IWord | undefined>();
+  selectedWord = input<IWord | undefined | null>();
   isDelete = input<boolean>();
 
   @Output() outputedWord = new EventEmitter<IWord>();
+
+  @ViewChild('inputBox') inputBoxRef!: ElementRef<HTMLInputElement>;
 
   ngOnInit(): void {
     const selected = this.selectedWord();
@@ -89,8 +94,8 @@ export class SubmissionComponent {
     this.wordService.DELETE_Word(word.id).subscribe({
       next: (res) => {
         this.outputedWord.emit(word);  // Emit word that was deleted
-        this.submittedItem = '';
         this.showSnackBar('Successfully deleted: ' + word.word);
+        this.resetInputBox();
       },
       error: (err: any) => {
         this.showSnackBar('Delete failed: ' + err);
@@ -140,13 +145,17 @@ export class SubmissionComponent {
       word: this.submittedItem
     }).subscribe({
       next: word => {
-      this.showSnackBar(this.submittedItem + " has been created")
+      this.showSnackBar(this.submittedItem + " has been created");
+      this.secretWord(this.submittedItem);
+      this.submittedItem = '';
     },
     error: (err) => {
       if (err.status === 400) {
         this.showSnackBar(`Error: ${err.error}`);
+        this.submittedItem = '';
       } else {
         this.showSnackBar('Unexpected error occurred');
+        this.submittedItem = '';
       }
     }
   });
@@ -184,5 +193,21 @@ export class SubmissionComponent {
       }
     })
   }
-  
+
+  resetInputBox(){
+    if (this.inputBoxRef?.nativeElement) {
+      this.inputBoxRef.nativeElement.value = '';
+    }
+    this.submittedItem = '';
+  }
+
+  secretWord(secretWord: string) {
+    const specialWords = ['Monkey', 'Nice', 'Wow', 'Bitch', 'Fine'];
+
+    if (specialWords.includes(secretWord)){
+      this.dialog.open(SpecialWordComponent, {
+        data: {word: secretWord}
+      });
+    }
+  }
 }

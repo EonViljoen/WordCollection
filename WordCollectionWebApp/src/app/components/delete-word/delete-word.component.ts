@@ -64,7 +64,7 @@ export class DeleteWordComponent {
       const selectedText = event.option.value;
       this.selectedWord = this.existingWords.find(w => w.word === selectedText);
       if (this.selectedWord) {
-        this.showSnackBar('Selected word: '+ this.selectedWord);
+        this.showSnackBar('Selected word: '+ this.selectedWord.word);
       } else {
         this.showSnackBar('No word found matching the selection');
       }
@@ -81,4 +81,5 @@ export class DeleteWordComponent {
     normalize(v: string): string {
       return v.toLowerCase().replace(/\s+/g, '');
     }
+
 }
