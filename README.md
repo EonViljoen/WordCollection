@@ -6,13 +6,19 @@ Fullstack project to capture words, group by word type, to compile a collection 
 - .Net 8 (ASP.NET CORE)
 - MongoDB
 
-Unchecked content ETA: TBA
+# Hosting
+- GitHub Pages for Frontend
+- Render for Backend
+- Mongo Atlas for Database
+
+# Live Site URL
+- https://eonviljoen.github.io/WordCollection/
 
 # Full-Stack System Checklist (Angular + ASP.NET Core + MongoDB) provided by ChatGPT on what is required for a Full-Stack System
 
 ## 1. Frontend (Client-Side)
 - [x] Built with a modern framework
-- [ ] Routing system in place
+- [x] Routing system in place
 - [x] Components for listing, creating, editing, deleting words
 - [x] Consumes backend API via HttpClient
 - [x] All endpoints pulled from config
@@ -31,9 +37,9 @@ Unchecked content ETA: TBA
 - [x] Controllers and service layers are properly separated
 - [x] DTO models
 - [x] Services for database interaction
-- [ ] Input validation and request body checks
-- [ ] Authentication (e.g., JWT)
-- [ ] Authorization (e.g., role-based access)
+- [x] Input validation and request body checks
+- [ ] ~Authentication (e.g., JWT)~
+- [x] Authorization (e.g., role-based access)
 - [x] CORS policy enabled for frontend domain
 - [x] Exception handling middleware
 - [x] Environment configuration
@@ -44,7 +50,7 @@ Unchecked content ETA: TBA
 - [x] Connected using secure, configurable connection strings
 - [x] Schema or document structure well defined
 - [x] Supports full CRUD operations via backend
-- [ ] Data migration or seed setup
+- [ ] ~Data migration or seed setup~
 
 ---
 
@@ -55,7 +61,7 @@ Unchecked content ETA: TBA
 - [x] Swagger/OpenAPI documentation auto-generated
 - [x] Consistent naming and versioning of endpoints
 - [x] Angular calls endpoints using service layer, no hardcoded URLs
-- [ ] Standard error response structure
+- [x] Standard error response structure
 
 ---
 
@@ -75,9 +81,9 @@ Unchecked content ETA: TBA
   - [x] Dockerize both apps
   - [x] Push to DockerHub/GitHub Container Registry
 - [x] Dockerfile and docker-compose for production
-- [ ] Linting and formatting integrated in pipeline
-- [ ] Tests executed during CI
-- [ ] Dockerfile and docker-compose for local
+- [ ] ~Linting and formatting integrated in pipeline~
+- [ ] ~Tests executed during CI~
+- [ ] ~Dockerfile and docker-compose for local~
 - [x] Dockerfile and docker-compose for production
 
 ---
@@ -86,19 +92,19 @@ Unchecked content ETA: TBA
 - [x] Backend hosted on a cloud platform
 - [x] Frontend deployed to CDN
 - [x] MongoDB hosted on Atlas
-- [ ] HTTPS/SSL enabled
-- [ ] Custom domain set
+- [x] HTTPS/SSL enabled
+- [ ] ~Custom domain set~
 - [x] Deployment is automated
 
 ---
 
 ## 8. Monitoring & Logging
 - [x] Backend logs requests/responses
-- [ ] Frontend logs errors
-- [ ] Centralized or external logging
-- [ ] Error tracking enabled
-- [ ] Health check endpoint available
-- [ ] Performance monitoring
+- [ ] ~Frontend logs errors~
+- [x] Centralized or external logging
+- [x] Error tracking enabled
+- [ ] ~Health check endpoint available~
+- [ ] ~Performance monitoring~
 
 ---
 
@@ -106,21 +112,21 @@ Unchecked content ETA: TBA
 - [ ] Unit tests for backend services in .NET using xUnit or NUnit
 - [ ] Unit/component tests for frontend with Karma/Jasmine
 - [ ] E2E tests with tools like Cypress or Playwright
-- [ ] Code coverage reported (optional)
+- [ ] ~Code coverage reported (optional)~
 - [ ] ESLint/TSLint, Prettier configured
 
 ---
 
 ## 10. Documentation
 - [x] `README.md` with project overview, setup instructions, and architecture
-- [ ] API documentation available (e.g., Swagger UI)
-- [ ] Architecture diagram (optional)
-- [ ] Environment variable reference
-- [ ] Developer guide or onboarding doc (optional)
+- [ ] ~API documentation available (e.g., Swagger UI)~
+- [ ] ~Architecture diagram (optional)~
+- [ ] ~Environment variable reference~
+- [ ] ~Developer guide or onboarding doc (optional)~
 
 ## 11. Bonus (Enterprise / Production-Level)
-- [ ] Mobile-friendly (PWA or mobile-first design)
-- [ ] Internationalization (i18n) support
-- [ ] Multi-environment deployment (dev/staging/prod)
-- [ ] Role-based admin dashboard
-- [ ] Email or notification system
+- [x] Mobile-friendly (PWA or mobile-first design)
+- [x] Internationalization (i18n) support
+- [ ] ~Multi-environment deployment (dev/staging/prod)~
+- [x] Role-based admin dashboard
+- [ ] ~Email or notification system~
