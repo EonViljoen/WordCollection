@@ -77,7 +77,7 @@ Fullstack project to capture words, group by word type, to compile a collection 
 - [x] GitHub Actions workflow:
   - [x] Build Angular app
   - [x] Build .NET Core backend
-  - [ ] Run tests
+  - [ ] ~Run tests~
   - [x] Dockerize both apps
   - [x] Push to DockerHub/GitHub Container Registry
 - [x] Dockerfile and docker-compose for production
