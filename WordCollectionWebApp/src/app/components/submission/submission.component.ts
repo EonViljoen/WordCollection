@@ -160,6 +160,14 @@ export class SubmissionComponent {
       return;
     }
 
+    // REGEX: Only letters, at least 1 character
+    const validWordRegex = /^[\p{L}'-]+$/u;
+
+    if (!validWordRegex.test(this.submittedItem)) {
+      this.showSnackBar('New word must contain only letters');
+      return;
+    }
+
     const updatedWord: IWord = {
       ...word,
       word: this.submittedItem

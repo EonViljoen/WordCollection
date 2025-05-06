@@ -68,6 +68,12 @@ namespace WordCollectionApi.Controllers
         [HttpPut("PUT_Word/{id}")]
         public async Task<ActionResult<Word>> PUTword([FromRoute]int id, [FromBody] Word updatedWord)
         {
+            if (string.IsNullOrWhiteSpace(updatedWord.WordValue))
+                return BadRequest("New word cannot be empty.");
+
+            if (!Regex.IsMatch(updatedWord.WordValue, @"^[\p{L}'-]+$", RegexOptions.Compiled | RegexOptions.CultureInvariant))
+                return BadRequest("New word contains invalid characters.");
+
             var existingWord = await _wordService.GetWordAsync(id);
 
             if (existingWord != null)
